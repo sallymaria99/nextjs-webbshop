@@ -17,12 +17,12 @@ export default function RootLayout({ children }: LayoutProps) {
       <body className={inter.className}>
         <header>
           <Link href="/">
-            <h1>NextJS webbshop</h1>
+            <h1>Ice</h1>
           </Link>
         </header>
         {children}
         <footer>
-          <p>© 2024</p>
+          <p>NAPS © 2024</p>
         </footer>
       </body>
     </html>
