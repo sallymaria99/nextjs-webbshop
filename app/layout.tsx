@@ -1,10 +1,9 @@
+import { ThemeProvider, createTheme } from "@mui/material";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { LayoutProps } from "./types";
 import Header from "./components/header";
-import { ThemeProvider, createTheme } from "@mui/material";
-import { green } from "@mui/material/colors";
+import { LayoutProps } from "./types";
 
 const inter = Inter({ subsets: ["latin"] });
 
