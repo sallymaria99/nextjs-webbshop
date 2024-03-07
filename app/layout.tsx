@@ -13,25 +13,25 @@ export const metadata: Metadata = {
   description: "Dina favoritprodukter online till en bra pris...",
 };
 
-const theme = createTheme({
+/* const theme = createTheme({
   palette: { primary: { main: "green" } },
-});
+}); */
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider theme={theme}>
-          <Header />
-          <Link href="/">
-            <h1>Ice</h1>
-          </Link>
+        {/* <ThemeProvider theme={theme}> */}
+        <Header />
+        <Link href="/">
+          <h1>Ice</h1>
+        </Link>
 
-          {children}
-          <footer>
-            <p>NAPS © 2024</p>
-          </footer>
-        </ThemeProvider>
+        {children}
+        <footer>
+          <p>NAPS © 2024</p>
+        </footer>
+        {/*   </ThemeProvider> */}
       </body>
     </html>
   );
