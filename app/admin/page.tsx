@@ -4,6 +4,8 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Image from "next/image";
+import { products } from "@/data";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -17,26 +19,19 @@ export default function AdminPage() {
   return (
     <main>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={8} columns={16}>
-          <Grid item xs={8}>
-            <Item>xs=8</Item>
+        {products.map((product) => (
+          <Grid key={product.id} item xs={8}>
+            <Item>
+              <Image
+                src={product.image}
+                width={100}
+                height={100}
+                alt={product.title}
+              />
+              <p>{product.description}</p>
+            </Item>
           </Grid>
-          <Grid item xs={8}>
-            <Item>xs=8</Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>xs=8</Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>xs=8</Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>xs=8</Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>xs=8</Item>
-          </Grid>
-        </Grid>
+        ))}
       </Box>
     </main>
   );

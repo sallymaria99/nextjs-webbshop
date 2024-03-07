@@ -26,12 +26,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className}>
         <AppRouterCacheProvider>
           {/* <ThemeProvider theme={theme}> */}
           <Header />
           <Link href="/">
-            <h1>Ice</h1>
+            <br />
+            <br />
+            <br />
           </Link>
 
           {children}
