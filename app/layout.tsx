@@ -9,6 +9,7 @@ import Link from "next/link";
 import Header from "./components/header";
 import { LayoutProps } from "./types";
 import Footer from "./components/footer";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,16 +27,18 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <ThemeProvider theme={theme}> */}
-        <Header />
-        <Link href="/">
-          <h1>Ice</h1>
-        </Link>
+        <AppRouterCacheProvider>
+          {/* <ThemeProvider theme={theme}> */}
+          <Header />
+          <Link href="/">
+            <h1>Ice</h1>
+          </Link>
 
-        {children}
-        <Footer />
+          {children}
+          <Footer />
 
-        {/*   </ThemeProvider> */}
+          {/*   </ThemeProvider> */}
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
