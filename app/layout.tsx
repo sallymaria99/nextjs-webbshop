@@ -1,9 +1,14 @@
-import { ThemeProvider, createTheme } from "@mui/material";
+import {
+  BottomNavigationAction,
+  ThemeProvider,
+  createTheme,
+} from "@mui/material";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Header from "./components/header";
 import { LayoutProps } from "./types";
+import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,9 +33,8 @@ export default function RootLayout({ children }: LayoutProps) {
         </Link>
 
         {children}
-        <footer>
-          <p>NAPS © 2024</p>
-        </footer>
+        <Footer />
+
         {/*   </ThemeProvider> */}
       </body>
     </html>
