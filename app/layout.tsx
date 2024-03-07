@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import { LayoutProps } from "./types";
+import Header from "./components/header";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { green } from "@mui/material/colors";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,19 +14,25 @@ export const metadata: Metadata = {
   description: "Dina favoritprodukter online till en bra pris...",
 };
 
+const theme = createTheme({
+  palette: { primary: { main: "green" } },
+});
+
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header>
+        <ThemeProvider theme={theme}>
+          <Header />
           <Link href="/">
-            <h1>NextJS webbshop</h1>
+            <h1>Ice</h1>
           </Link>
-        </header>
-        {children}
-        <footer>
-          <p>© 2024</p>
-        </footer>
+
+          {children}
+          <footer>
+            <p>NAPS © 2024</p>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

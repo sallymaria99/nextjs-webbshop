@@ -15,4 +15,5 @@ export interface CartItem extends Product {
 }
 
 /* Lägg till era produkter här */
+// OBS DÖP EJ OM
 export const products: Product[] = [];
