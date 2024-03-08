@@ -6,12 +6,12 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import Image from "next/image";
-
-/* const imageLogo = "../assets/productImages/IceLogo.svg"; */
+import Link from "next/link";
 
 export default function Header() {
+  const imageLogo = "/IceLogo.svg";
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -25,7 +25,9 @@ export default function Header() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <Link href="/admin">
+              <ManageAccountsIcon />
+            </Link>
           </IconButton>
 
           <Typography
@@ -35,7 +37,7 @@ export default function Header() {
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           ></Typography>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Image src={imageLogo} width={40} height={40} alt="IceLogo" />
+            <Image src={imageLogo} width={70} height={70} alt="IceLogo" />
           </Box>
         </Toolbar>
       </AppBar>
