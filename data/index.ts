@@ -7,6 +7,7 @@ import { StaticImageData } from "next/image";
 import iceCube from "../app/assets/productImages/ice_cube.png";
 import iceGlass from "../app/assets/productImages/iceglass.png";
 import ice2 from "../app/assets/productImages/ice2.png";
+
 export interface Product {
   id: string;
   image: StaticImageData;

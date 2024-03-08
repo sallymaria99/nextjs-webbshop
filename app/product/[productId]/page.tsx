@@ -1,7 +1,9 @@
 import { products, Product } from "@/data";
 import Image from "next/image";
 
-function ProductPage({ params }: { params: { productId: string } }) {
+type PageProps = { params: { productId: string } };
+
+function ProductPage({ params }: PageProps) {
   const productId = params.productId;
   const selectedProduct = products.find(
     (product: Product) => product.id === productId
@@ -13,7 +15,7 @@ function ProductPage({ params }: { params: { productId: string } }) {
 
   return (
     <div>
-      <h1>Om produkten {selectedProduct?.title}</h1>
+      <h1> {selectedProduct.title}</h1>
       <Image
         src={selectedProduct.image}
         alt={selectedProduct.title}
