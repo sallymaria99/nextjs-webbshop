@@ -3,14 +3,10 @@
  * OBS: Kan utökas men inte ändras pga cypress.
  *
  **/
-import { StaticImageData } from "next/image";
-import iceCube from "../app/assets/productImages/ice_cube.png";
-import iceGlass from "../app/assets/productImages/iceglass.png";
-import ice2 from "../app/assets/productImages/ice2.png";
 
 export interface Product {
   id: string;
-  image: StaticImageData;
+  image: string;
   title: string;
   description: string;
   price: number;
@@ -25,7 +21,7 @@ export interface CartItem extends Product {
 export const products: Product[] = [
   {
     id: "1",
-    image: iceCube,
+    image: "/productImages/ice_cube.png",
     title: "Ice cubes made by the man himself Mr Ice Cube",
     description:
       "Handcarved icecubes from Jukkasjärvi in Sweden. The perfect cube for a fresh glas of water, and also our cheepest cube. ",
@@ -33,7 +29,7 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    image: iceGlass,
+    image: "/productImages/ice2.png",
     title: "Magical ice in a crystal glass (glas not included)",
     description:
       "This is amazing have all the ice and godness with all is glory bla bla",
@@ -41,7 +37,7 @@ export const products: Product[] = [
   },
   {
     id: "3",
-    image: ice2,
+    image: "/productImages/iceglass.png",
     title: "Ice cubes made by the man himself Mr Ice Cube",
     description:
       "Handcarved icecubes from Jukkasjärvi in Sweden. The perfect cube for a fresh glas of water, and also our cheepest cube. ",
