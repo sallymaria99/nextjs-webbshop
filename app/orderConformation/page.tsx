@@ -1,5 +1,9 @@
 function OrderConf() {
-  return <h1>Order Confirmation Page</h1>;
+  return (
+    <main>
+      <h1>Order Confirmation Page</h1>
+    </main>
+  );
 }
 
 export default OrderConf;
