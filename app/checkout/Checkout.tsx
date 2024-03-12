@@ -19,7 +19,12 @@ import Review from "./Review";
 function Copyright() {
 	//länken längst ner
 	return (
-		<Typography variant="body2" color="text.secondary" align="center">
+		<Typography
+			variant="body2"
+			color="text.secondary"
+			align="center"
+			sx={{ pb: 1 }}
+		>
 			{"Copyright © "}
 			<Link color="inherit" href="https://mui.com/">
 				Luxice
@@ -65,7 +70,7 @@ export default function Checkout() {
 				elevation={0}
 				sx={{
 					position: "relative",
-					borderBottom: (t) => `1px solid ${t.palette.divider}`,
+					borderBottom: (t) => `${t.palette.divider}`,
 				}}
 			>
 				{/* <Toolbar>
@@ -77,7 +82,7 @@ export default function Checkout() {
 			<Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
 				<Paper
 					variant="outlined"
-					sx={{ my: { xs: 10, md: 15 }, p: { xs: 2, md: 3 } }}
+					sx={{ my: { xs: 6, md: 14 }, p: { xs: 2, md: 3 } }}
 				>
 					<Typography component="h1" variant="h4" align="center">
 						Checkout
