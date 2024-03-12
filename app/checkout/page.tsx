@@ -11,12 +11,12 @@ function CheckoutPage() {
         cart.map((cartItem) => (
           <Container key={cartItem.id}>
             <Stack direction={"row"}>
-              <Typography variant="h1">{cartItem.title}</Typography>{" "}
+              <Typography variant="h2">{cartItem.title}</Typography>{" "}
               <Image
                 src={cartItem.image}
                 alt={cartItem.title}
-                width={20}
-                height={20}
+                width={50}
+                height={50}
               ></Image>
             </Stack>
           </Container>
