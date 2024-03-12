@@ -2,7 +2,6 @@ import { ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Checkout from "./checkout/Checkout";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import themes from "./themes/theme";
@@ -24,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps) {
 				<AppRouterCacheProvider>
 					<ThemeProvider theme={themes}>
 						<Header />
-						<Checkout />
+
 						<Link href="/">
 							<br />
 							<br />

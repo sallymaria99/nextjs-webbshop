@@ -17,11 +17,12 @@ import PaymentForm from "./PaymentForm";
 import Review from "./Review";
 
 function Copyright() {
+	//länken längst ner
 	return (
 		<Typography variant="body2" color="text.secondary" align="center">
 			{"Copyright © "}
 			<Link color="inherit" href="https://mui.com/">
-				Your Website
+				Luxice
 			</Link>{" "}
 			{new Date().getFullYear()}
 			{"."}

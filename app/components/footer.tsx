@@ -39,7 +39,7 @@ function Footer() {
 			/>
 			<BottomNavigationAction
 				component={Link}
-				href="/"
+				href="/checkout"
 				label="Cart"
 				icon={<ShoppingCartIcon sx={{ color: "#4D559D" }} />}
 			/>
