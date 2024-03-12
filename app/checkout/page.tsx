@@ -1,12 +1,11 @@
-import { Box } from "@mui/material";
 import Checkout from "./Checkout";
 
 function CheckoutPage() {
 	return (
-		<Box>
+		<span>
 			<Checkout />
 			<div>Does this work</div>
-		</Box>
+		</span>
 	);
 }
 export default CheckoutPage;
