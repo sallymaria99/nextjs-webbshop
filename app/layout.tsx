@@ -1,11 +1,12 @@
-import { BottomNavigationAction, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Header from "./components/header";
-import { LayoutProps } from "./types";
 import Footer from "./components/footer";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import Header from "./components/header";
+import CartProvider from "./contexts/CartContext";
 import themes from "./themes/theme";
+import { LayoutProps } from "./types";
 
 /* Beskriv din hemsida för sökmotorerna */
 export const metadata: Metadata = {
@@ -22,15 +23,17 @@ export default function RootLayout({ children }: LayoutProps) {
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={themes}>
-            <Header />
-            <Link href="/">
-              <br />
-              <br />
-              <br />
-            </Link>
+            <CartProvider>
+              <Header />
+              <Link href="/">
+                <br />
+                <br />
+                <br />
+              </Link>
 
-            {children}
-            <Footer />
+              {children}
+              <Footer />
+            </CartProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

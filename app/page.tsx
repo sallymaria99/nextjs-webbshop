@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import { products } from "../data/index";
 import Image from "next/image";
 import Link from "next/link";
+import { products } from "../data/index";
 import AddToCartButton from "./components/addToCartButton";
 
 function Home() {
