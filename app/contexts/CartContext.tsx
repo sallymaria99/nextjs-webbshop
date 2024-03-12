@@ -1,6 +1,12 @@
 "use client";
 import { CartItem, Product } from "@/data";
-import { PropsWithChildren, createContext, useContext, useState } from "react";
+import {
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 // Contexten
 interface CartContextData {
@@ -12,21 +18,27 @@ interface CartContextData {
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
+const CART_LOCAL_STORAGE_KEY = "cart";
+
 // Provider componenten
 function CartProvider({ children }: PropsWithChildren<{}>) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    const savedCart = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product: Product) => {
     setCart((currentCart) => {
       const existingProductIndex = currentCart.findIndex(
         (item) => item.id === product.id
       );
-      if (existingProductIndex >= 0) {
+      if (existingProductIndex !== -1) {
         const updatedCart = [...currentCart];
-        updatedCart[existingProductIndex] = {
-          ...updatedCart[existingProductIndex],
-          quantity: updatedCart[existingProductIndex].quantity + 1,
-        };
+        updatedCart[existingProductIndex].quantity += 1;
         return updatedCart;
       } else {
         return [...currentCart, { ...product, quantity: 1 }];

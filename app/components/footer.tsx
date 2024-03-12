@@ -4,7 +4,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Badge, BottomNavigation } from "@mui/material";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { red } from "@mui/material/colors";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
@@ -62,9 +61,11 @@ function Footer() {
             /* position: "absolute",
             width: 5,
             height: 5, */
-            background: red,
-            borderRadius: "50%",
-            ".MuiBadge-badge": { right: -3, top: 13 },
+
+            ".MuiBadge-badge": {
+              right: -3,
+              top: 13,
+            },
           }}
         >
           <BottomNavigationAction
