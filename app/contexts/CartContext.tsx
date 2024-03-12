@@ -1,7 +1,9 @@
 "use client";
 import { CartItem, Product } from "@/data";
 import {
+  Dispatch,
   PropsWithChildren,
+  SetStateAction,
   createContext,
   useContext,
   useEffect,
@@ -14,6 +16,7 @@ interface CartContextData {
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
   clearCart: () => void;
+  setCart: Dispatch<SetStateAction<CartItem[]>>;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
@@ -59,7 +62,7 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart }}
+      value={{ cart, setCart, addToCart, removeFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>
@@ -67,5 +70,6 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
 }
 
 // Kosumerings hook
+
 export const useCart = () => useContext(CartContext);
 export default CartProvider;

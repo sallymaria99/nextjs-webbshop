@@ -8,10 +8,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
 
-/* const totalCart: CartItem[] = () => {
-  const { cart } = useCart();
-}; */
-
 function Footer() {
   const { cart } = useCart();
   const [totalItems, setTotalItems] = useState(0);
