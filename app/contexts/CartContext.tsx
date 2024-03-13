@@ -36,13 +36,14 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
 
   const addToCart = (product: Product) => {
     setCart((currentCart) => {
-      const existingProductIndex = currentCart.findIndex(
-        (item) => item.id === product.id
-      );
-      if (existingProductIndex !== -1) {
-        const updatedCart = [...currentCart];
-        updatedCart[existingProductIndex].quantity += 1;
-        return updatedCart;
+      const exists = currentCart.some((item) => item.id === product.id);
+      if (exists) {
+        return currentCart.map((item) => {
+          if (item.id === product.id) {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+          return item;
+        });
       } else {
         return [...currentCart, { ...product, quantity: 1 }];
       }
