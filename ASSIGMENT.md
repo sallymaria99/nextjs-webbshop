@@ -68,17 +68,17 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 
 ### Lista på data-cy som ska finnas i koden
 
-- `data-cy="product"` produkt-korten/raden på startsidan & adminsidan.
-- `data-cy="product-id"` id på en produkt.
-- `data-cy="product-title"` titeln på en produkt.
-- `data-cy="product-price"` priset på en produkt.
-- `data-cy="product-description"` beskrivningen av en produkt.
-- `data-cy="product-buy-button"` lägg till i kundvagnen knappen.
+- `data-cy="product"` produkt-korten/raden på startsidan & adminsidan. <!-- tillagt i home och admin box för korten-->
+- `data-cy="product-id"` id på en produkt. <!--lägger till i admin och korten-->
+- `data-cy="product-title"` titeln på en produkt.<!-- tillagt i home-->
+- `data-cy="product-price"` priset på en produkt.<!-- tillagt i home-->
+- `data-cy="product-description"` beskrivningen av en produkt. <!-- tillagt i home-->
+- `data-cy="product-buy-button"` lägg till i kundvagnen knappen. <!-- Tillagd i Home()-->
 - `data-cy="added-to-cart-toast"` toast som visas när en produkt läggs till i kundvagnen.
 
 ---
 
-- `data-cy="cart-link"` knappen för att gå till kundvagnen/kassasidan.
+- `data-cy="cart-link"` knappen för att gå till kundvagnen/kassasidan. <!-- Tillagd i Footer -->
 - `data-cy="cart-items-count-badge"` siffran intill kundvagnsikonen som visar antalet tillagda produkter.
 - `data-cy="cart-item"` en produktrad på kassasidan.
 - `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida.
@@ -104,7 +104,7 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 
 ---
 
-- `data-cy="admin-link"` den länk/knapp som går till admin.
+- `data-cy="admin-link"` den länk/knapp som går till admin. <!-- Tillagd i Header -->
 - `data-cy="admin-add-product"` edit-knappen för admin som ska editera en produkt.
 - `data-cy="admin-edit-product"` edit-knappen för admin som ska editera en produkt.
 - `data-cy="admin-remove-product"` den knapp som ska kunna radera en produkt.

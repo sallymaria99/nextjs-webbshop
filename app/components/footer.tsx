@@ -1,24 +1,12 @@
 "use client";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Badge, BottomNavigation } from "@mui/material";
+import { BottomNavigation } from "@mui/material";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useCart } from "../contexts/CartContext";
+import CustomizedBadges from "./cartButton";
 
 function Footer() {
-  const { cart } = useCart();
-  const [totalItems, setTotalItems] = useState(0);
-
-  useEffect(() => {
-    const itemCount: any = cart.reduce(
-      (total, item) => total + item.quantity,
-      0
-    );
-    setTotalItems(itemCount);
-  }, [cart]);
   return (
     <>
       <BottomNavigation
@@ -51,26 +39,14 @@ function Footer() {
           label="Home"
           icon={<HomeIcon sx={{ color: "#4D559D" }} />}
         />
-        <Badge
-          badgeContent={totalItems}
-          sx={{
-            /* position: "absolute",
-            width: 5,
-            height: 5, */
 
-            ".MuiBadge-badge": {
-              right: -3,
-              top: 13,
-            },
-          }}
-        >
-          <BottomNavigationAction
-            component={Link}
-            href="/checkout"
-            label="Cart"
-            icon={<ShoppingCartIcon sx={{ color: "#4D559D" }} />}
-          />
-        </Badge>
+        <BottomNavigationAction
+          data-cy="cart-link"
+          component={Link}
+          href="/checkout"
+          label="Cart"
+          icon={<CustomizedBadges />} //cartbutton
+        />
       </BottomNavigation>
     </>
   );

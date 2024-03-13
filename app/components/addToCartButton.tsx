@@ -10,6 +10,7 @@ const StyledButton = styled(Button)({
   color: "white",
 });
 
+//lägga till produktknapp
 interface AddToCartProps {
   product: Product;
 }
@@ -18,7 +19,9 @@ export default function AddToCartButton({ product }: AddToCartProps) {
   const { addToCart } = useCart();
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
+
     addToCart(product);
+    console.log("hej");
     // Hantera klick på knappen
     // Prata med kundvagnskontexten
     // förhindra att länken följs e.preventDefault (e.stopPropagation)
