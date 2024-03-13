@@ -1,13 +1,9 @@
-import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import MUILink from "@mui/material/Link";
-import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import Toolbar from "@mui/material/Toolbar";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,6 +26,7 @@ export default function Header() {
       >
         <Box sx={{ flexGrow: 1 }}>
           <IconButton
+            data-cy="admin-link"
             component={Link}
             href="/admin"
             size="large"
