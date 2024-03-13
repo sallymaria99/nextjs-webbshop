@@ -38,12 +38,10 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
           <Typography variant="body2" color="text.secondary">
             {props.price}
           </Typography>
-          <AddToCartButton product={product} />
+          <AddToCartButton product={product} data-cy="product-buy-button" />
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        {/* <AddToCartButton data-cy="product-buy-button" /> */}
-      </CardActions>
+      <CardActions></CardActions>
     </Card>
   );
 }
