@@ -1,6 +1,7 @@
 "use client";
 import { Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import HandleQuantbutton from "../components/handleQuantbutton";
 import { useCart } from "../contexts/CartContext";
 
 function CheckoutPage() {
@@ -19,6 +20,7 @@ function CheckoutPage() {
                 height={50}
               ></Image>
             </Stack>
+            <HandleQuantbutton id={cartItem.id} />
           </Container>
         ))
       ) : (

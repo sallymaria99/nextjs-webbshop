@@ -25,7 +25,6 @@ export default function CustomizedBadges() {
       0
     );
     setTotalItems(itemCount);
-    console.log("hej");
   }, [cart]);
   return (
     <IconButton aria-label="cart">

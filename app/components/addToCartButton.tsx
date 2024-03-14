@@ -21,7 +21,7 @@ export default function AddToCartButton({ product }: AddToCartProps) {
     e.preventDefault();
 
     addToCart(product);
-    console.log("hej");
+
     // Hantera klick på knappen
     // Prata med kundvagnskontexten
     // förhindra att länken följs e.preventDefault (e.stopPropagation)
