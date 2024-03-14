@@ -54,7 +54,19 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
   };
 
   const removeFromCart = (productId: string) => {
-    setCart((currentCart) => currentCart);
+    setCart((currentCart) => {
+      const exists = currentCart.some((item) => item.id === productId);
+      if (exists) {
+        return currentCart.map((item) => {
+          if (item.id === productId) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        });
+      } else {
+        return currentCart.filter((item) => item.quantity > 0);
+      }
+    });
   };
 
   const clearCart = () => {
