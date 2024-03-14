@@ -25,7 +25,6 @@ export default function AddressForm() {
 					<TextField
 						required
 						id="firstName"
-						name="firstName"
 						label="First name"
 						fullWidth
 						autoComplete="given-name"
@@ -52,6 +51,7 @@ export default function AddressForm() {
 						fullWidth
 						autoComplete="given-name"
 						variant="standard"
+						helperText="Enter a valid email"
 					/>
 				</Grid>
 
@@ -95,6 +95,7 @@ export default function AddressForm() {
 						fullWidth
 						autoComplete="shipping postal-code"
 						variant="standard"
+						helperText="4 digits or more"
 					/>
 				</Grid>
 				<Grid item xs={12} sm={6}>

@@ -50,10 +50,10 @@ export default function PaymentForm() {
 						required
 						id="cvv"
 						label="CVV"
-						helperText="Last three digits on signature strip"
 						fullWidth
 						autoComplete="cc-csc"
 						variant="standard"
+						helperText="Last three digits on signature strip"
 					/>
 				</Grid>
 				<Grid item xs={12}>
