@@ -8,7 +8,7 @@ export const PostSchema = z.object({
 		.string()
 		.max(60, { message: "The post can be a maximum of 60 characters long" }),
 	city: z.string({ required_error: "City is obligatory" }),
-	zip: z.string({ required_error: "Zipcode is obligatory" }),
+	zip: z.string({ required_error: "Zip code is obligatory" }),
 	id: z.string(),
 	country: z.string({ required_error: "Country is obligatory" }),
 	phone: z.string({ required_error: "Phone is obligatory" }),

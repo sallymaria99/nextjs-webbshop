@@ -15,6 +15,17 @@ export default function AddressForm() {
 		resolver: zodResolver(PostSchema),
 	});
 
+
+//	const {
+//		register,
+//		handleSubmit,
+//		formState: { errors },
+//	} = form;
+
+//	const onSubmit = (data: Post) => {
+//		console.log(data);
+	};
+
 	return (
 		<React.Fragment>
 			<Typography variant="h6" gutterBottom>
@@ -53,8 +64,9 @@ export default function AddressForm() {
 						fullWidth
 						autoComplete="email"
 						variant="standard"
-						helperText="Enter a valid email"
 						data-cy="customer-email"
+						//	error={!!errors.email}
+						//	helperText={errors.email?.message}
 					/>
 				</Grid>
 
