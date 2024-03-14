@@ -15,16 +15,15 @@ export default function AddressForm() {
 		resolver: zodResolver(PostSchema),
 	});
 
+	//	const {
+	//		register,
+	//		handleSubmit,
+	//		formState: { errors },
+	//	} = form;
 
-//	const {
-//		register,
-//		handleSubmit,
-//		formState: { errors },
-//	} = form;
-
-//	const onSubmit = (data: Post) => {
-//		console.log(data);
-	};
+	//	const onSubmit = (data: Post) => {
+	//		console.log(data);
+	//	};
 
 	return (
 		<React.Fragment>
