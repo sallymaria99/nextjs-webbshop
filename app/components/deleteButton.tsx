@@ -3,7 +3,7 @@ import { Box, IconButton } from "@mui/material";
 import { useCart } from "../contexts/CartContext";
 
 interface DeleteProps {
-  id: "string";
+  id: string;
 }
 
 export default function DeleteButton(props: DeleteProps) {

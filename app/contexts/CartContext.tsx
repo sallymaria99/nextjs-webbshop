@@ -77,7 +77,9 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
   };
 
   const clearCart = (productId: string) => {
-    return console.log("cartcontext", productId); //setCart([]);
+    setCart((currentCart) => {
+      return currentCart.filter((item) => item.id !== productId);
+    });
   };
 
   return (
