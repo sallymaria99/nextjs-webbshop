@@ -1,16 +1,20 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import { nanoid } from "nanoid";
 import * as React from "react";
+import { useForm } from "react-hook-form";
+import { Post, PostSchema } from "./Postschema";
 
-/* const form = useForm<Textfield>({
-    defaultValues: { id: nanoid() },
-    resolver: zodResolver(PostSchema),
-  });
- */
 export default function AddressForm() {
+	const form = useForm<Post>({
+		defaultValues: { id: nanoid() },
+		resolver: zodResolver(PostSchema),
+	});
+
 	return (
 		<React.Fragment>
 			<Typography variant="h6" gutterBottom>
