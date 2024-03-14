@@ -62,8 +62,8 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
 
   const removeFromCart = (productId: string) => {
     setCart((currentCart) => {
-      const exists = currentCart.some((item) => item.id === productId);
-      if (exists) {
+      const cartItem = currentCart.find((item) => item.id === productId);
+      if (cartItem && cartItem.quantity > 1) {
         return currentCart.map((item) => {
           if (item.id === productId) {
             return { ...item, quantity: item.quantity - 1 };
@@ -71,7 +71,7 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
           return item;
         });
       } else {
-        return currentCart.filter((item) => item.quantity > 0);
+        return currentCart.filter((item) => item.id !== productId);
       }
     });
   };
