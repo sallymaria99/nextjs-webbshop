@@ -15,7 +15,7 @@ interface CartContextData {
   cart: CartItem[];
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
-  clearCart: () => void;
+  clearCart: (productId: string) => void;
   setCart: Dispatch<SetStateAction<CartItem[]>>;
 }
 
@@ -76,8 +76,8 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
     });
   };
 
-  const clearCart = () => {
-    setCart([]);
+  const clearCart = (productId: string) => {
+    return console.log("cartcontext", productId); //setCart([]);
   };
 
   return (

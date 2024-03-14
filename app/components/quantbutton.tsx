@@ -8,7 +8,7 @@ interface ProductId {
   id: string;
 }
 
-export default function HandleQuantbutton(props: ProductId) {
+export default function Quantbutton(props: ProductId) {
   const { cart } = useCart();
   const item = cart.find((cartItem) => cartItem.id === props.id);
 
