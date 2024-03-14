@@ -20,6 +20,7 @@ export default function PaymentForm() {
 						fullWidth
 						autoComplete="cc-name"
 						variant="standard"
+						helperText="The name as it appears on your card"
 					/>
 				</Grid>
 				<Grid item xs={12} md={6}>
@@ -30,6 +31,7 @@ export default function PaymentForm() {
 						fullWidth
 						autoComplete="cc-number"
 						variant="standard"
+						helperText="The 16-digit number on your card"
 					/>
 				</Grid>
 				<Grid item xs={12} md={6}>
@@ -40,6 +42,7 @@ export default function PaymentForm() {
 						fullWidth
 						autoComplete="cc-exp"
 						variant="standard"
+						helperText="The expiry date of your card (MM/YYYY)"
 					/>
 				</Grid>
 				<Grid item xs={12} md={6}>
