@@ -11,6 +11,7 @@ export const PostSchema = z.object({
 	zip: z.string({ required_error: "Zipcode is obligatory" }),
 	id: z.string(),
 	country: z.string({ required_error: "Country is obligatory" }),
+	phone: z.string({ required_error: "Phone is obligatory" }),
 });
 
 export type Post = z.infer<typeof PostSchema>;
