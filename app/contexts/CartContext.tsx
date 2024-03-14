@@ -25,14 +25,21 @@ const CART_LOCAL_STORAGE_KEY = "cart";
 
 // Provider componenten
 function CartProvider({ children }: PropsWithChildren<{}>) {
-  const [cart, setCart] = useState<CartItem[]>(() => {
-    const savedCart = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    const savedCart = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isLoaded) return;
     localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify(cart));
-  }, [cart]);
+  }, [cart, isLoaded]);
 
   const addToCart = (product: Product) => {
     setCart((currentCart) => {

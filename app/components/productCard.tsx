@@ -1,4 +1,4 @@
-import { CardActionArea, CardActions } from "@mui/material";
+import { CardActionArea, CardActions, Link } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -24,7 +24,11 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+      <CardActionArea
+        LinkComponent={Link}
+        href={`/product/${product.id}`}
+        data-cy="product-id"
+      >
         <CardMedia
           component="img"
           height="140"
@@ -38,10 +42,11 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
           <Typography variant="body2" color="text.secondary">
             {props.price}
           </Typography>
-          <AddToCartButton product={product} data-cy="product-buy-button" />
         </CardContent>
       </CardActionArea>
-      <CardActions></CardActions>
+      <CardActions>
+        <AddToCartButton product={product} />
+      </CardActions>
     </Card>
   );
 }

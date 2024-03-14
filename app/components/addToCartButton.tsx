@@ -1,14 +1,9 @@
 "use client";
 
 import { Product } from "@/data";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Button, styled } from "@mui/material";
+import { ShoppingCartOutlined } from "@mui/icons-material";
+import { Button } from "@mui/material";
 import { useCart } from "../contexts/CartContext";
-
-const StyledButton = styled(Button)({
-  backgroundColor: "#4D559D",
-  color: "white",
-});
 
 //lägga till produktknapp
 interface AddToCartProps {
@@ -28,12 +23,17 @@ export default function AddToCartButton({ product }: AddToCartProps) {
   };
 
   return (
-    <StyledButton
+    <Button
+      style={{
+        backgroundColor: "#4D559D",
+        color: "white",
+      }}
+      data-cy="product-buy-button"
       variant="contained"
-      startIcon={<ShoppingCartIcon />}
+      startIcon={<ShoppingCartOutlined />}
       onClick={handleClick}
     >
       Add to cart
-    </StyledButton>
+    </Button>
   );
 }
