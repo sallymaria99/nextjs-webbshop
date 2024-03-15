@@ -136,7 +136,7 @@ export default function AddressForm() {
 						name="phone"
 						label="Phone"
 						fullWidth
-						autoComplete="shipping country"
+						autoComplete="tel"
 						variant="standard"
 						InputProps={{ "data-cy": "customer-phone" } as InputProps}
 						FormHelperTextProps={
