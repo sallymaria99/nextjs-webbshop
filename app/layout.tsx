@@ -7,6 +7,7 @@ import Header from "./components/header";
 import CartProvider from "./contexts/CartContext";
 import themes from "./themes/theme";
 import { LayoutProps } from "./types";
+import { ProductsProvider } from "./contexts/ProductContext";
 
 /* Beskriv din hemsida för sökmotorerna */
 export const metadata: Metadata = {
@@ -23,17 +24,19 @@ export default function RootLayout({ children }: LayoutProps) {
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={themes}>
-            <CartProvider>
-              <Header />
-              <Link href="/">
-                <br />
-                <br />
-                <br />
-              </Link>
+            <ProductsProvider>
+              <CartProvider>
+                <Header />
+                <Link href="/">
+                  <br />
+                  <br />
+                  <br />
+                </Link>
 
-              {children}
-              <Footer />
-            </CartProvider>
+                {children}
+                <Footer />
+              </CartProvider>
+            </ProductsProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
