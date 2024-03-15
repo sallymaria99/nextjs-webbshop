@@ -60,9 +60,17 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
 
   const removeProduct = (productId: string) => {
     setProducts((currentProduct: Product[]) => {
-      return currentProduct.filter((products) => products.id !== productId);
+      const updatedProducts = currentProduct.filter(
+        (product) => product.id !== productId
+      );
+      localStorage.setItem(
+        PRODUCTS_LOCAL_STORAGE_KEY,
+        JSON.stringify(updatedProducts)
+      );
+      return updatedProducts;
     });
   };
+
   const editProduct = (productId: string) => {
     return console.log("hej");
   };
