@@ -1,7 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, FormHelperTextProps, InputProps } from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -161,15 +159,9 @@ export default function AddressForm() {
 					/>
 				</Grid>
 				<Grid item xs={12}>
-					<FormControlLabel
-						control={
-							<Checkbox color="secondary" name="saveAddress" value="yes" />
-						}
-						label="Use this address for payment details"
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<Button type="submit">Spara</Button>
+					<Button type="submit" variant="contained" color="primary">
+						Save Shipping address
+					</Button>
 				</Grid>
 			</Grid>
 		</form>
