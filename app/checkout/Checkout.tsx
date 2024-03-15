@@ -96,13 +96,18 @@ export default function Checkout() {
 					</Stepper>
 					{activeStep === steps.length ? (
 						<React.Fragment>
-							<Typography variant="h5" gutterBottom>
-								Thank you for your order.
+							<Typography variant="subtitle1" gutterBottom>
+								Your satisfaction is our top priority, and we are committed to
+								delivering only the finest quality products to your doorstep.
+								Our team will be working diligently to ensure that your order
+								will be processed promptly and delivered to you on time. Thank
+								you for buying our quality ice, we look forward in serving you
+								once again in the future.
 							</Typography>
-							<Typography variant="subtitle1">
+							<Typography variant="subtitle2">
 								Your order number is #2001539. We have emailed your order
 								confirmation, and will send you an update when your order has
-								shipped.
+								shipped. Have an splendid day.
 							</Typography>
 						</React.Fragment>
 					) : (
