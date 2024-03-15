@@ -1,5 +1,4 @@
 "use client";
-//import { products } from "@/data";
 import { Button, IconButton, Link } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -9,6 +8,7 @@ import Image from "next/image";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useProducts } from "../contexts/ProductContext";
 import MultiActionAreaCard from "../components/productCard";
+import AdminDelete from "../components/adminDelete";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -37,6 +37,7 @@ export default function AdminPage() {
                 alt={product.title}
               />
               <p>{product.description}</p>
+              <AdminDelete id={product.id} />
             </Item>
           </Grid>
         ))}

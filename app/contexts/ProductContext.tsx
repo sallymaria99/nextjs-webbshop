@@ -6,6 +6,9 @@ import { Product, products as initialProducts } from "@/data";
 interface ProductsContextType {
   products: Product[];
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+  addProduct: (newProduct: Product) => void;
+  editProduct: (productId: string) => void;
+  removeProduct: (productId: string) => void;
 }
 
 interface ProductsProviderProps {
@@ -15,13 +18,14 @@ interface ProductsProviderProps {
 const defaultState: ProductsContextType = {
   products: [],
   setProducts: () => {},
+  addProduct: () => {},
+  editProduct: () => {},
+  removeProduct: () => {},
 };
 
 const ProductsContext = createContext<ProductsContextType>(defaultState);
 
 const PRODUCTS_LOCAL_STORAGE_KEY = "products";
-
-export const useProducts = () => useContext(ProductsContext);
 
 export const ProductsProvider: React.FC<ProductsProviderProps> = ({
   children,
@@ -43,9 +47,34 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
     }
   }, []);
 
+  const addProduct = (newProduct: Product) => {
+    setProducts((prevProducts) => {
+      const updatedProducts = [...prevProducts, newProduct];
+      /*  localStorage.setItem(
+        PRODUCTS_LOCAL_STORAGE_KEY,
+        JSON.stringify(updatedProducts)
+      ); */
+      return updatedProducts;
+    });
+  };
+
+  const removeProduct = (productId: string) => {
+    setProducts((currentProduct: Product[]) => {
+      return currentProduct.filter((products) => products.id !== productId);
+    });
+  };
+  const editProduct = (productId: string) => {
+    return console.log("hej");
+  };
+
   return (
-    <ProductsContext.Provider value={{ products, setProducts }}>
+    <ProductsContext.Provider
+      value={{ products, setProducts, addProduct, editProduct, removeProduct }}
+    >
       {children}
     </ProductsContext.Provider>
   );
 };
+
+export const useProducts = () => useContext(ProductsContext);
+export default ProductsProvider;

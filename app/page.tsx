@@ -1,8 +1,11 @@
+"use client";
 import { Box, Grid, Typography } from "@mui/material";
 import { products } from "../data/index";
 import MultiActionAreaCard from "./components/productCard";
+import { useProducts } from "./contexts/ProductContext";
 
 function Home() {
+  const { products } = useProducts();
   return (
     <Box component="main" data-cy="product">
       <Typography variant="h1">Home</Typography>
