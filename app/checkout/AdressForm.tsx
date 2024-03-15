@@ -4,10 +4,13 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { nanoid } from "nanoid";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Post, PostSchema } from "./Postschema";
 
 export default function AddressForm() {
+	const [isSubmitted, setIsSubmitted] = useState(false);
+
 	const form = useForm<Post>({
 		defaultValues: { id: nanoid() },
 		resolver: zodResolver(PostSchema),
@@ -15,6 +18,7 @@ export default function AddressForm() {
 
 	const save = (data: Post) => {
 		console.log(data);
+		setIsSubmitted(true);
 	};
 
 	return (
@@ -105,14 +109,7 @@ export default function AddressForm() {
 						helperText={form.formState.errors.city?.message}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						{...form.register("homestate")}
-						label="State/Province/Region"
-						fullWidth
-						variant="standard"
-					/>
-				</Grid>
+
 				<Grid item xs={12} sm={6}>
 					<TextField
 						{...form.register("zipcode")}
@@ -159,9 +156,11 @@ export default function AddressForm() {
 					/>
 				</Grid>
 				<Grid item xs={12}>
-					<Button type="submit" variant="contained" color="primary">
-						Save Shipping address
-					</Button>
+					{!isSubmitted && (
+						<Button type="submit" variant="contained" color="primary">
+							Save Shipping address
+						</Button>
+					)}
 				</Grid>
 			</Grid>
 		</form>
