@@ -10,33 +10,33 @@ import { LayoutProps } from "./types";
 
 /* Beskriv din hemsida för sökmotorerna */
 export const metadata: Metadata = {
-  title: "Webbshop",
-  description: "Dina favoritprodukter online till en bra pris...",
+	title: "Webbshop",
+	description: "Dina favoritprodukter online till en bra pris...",
 };
 
 export default function RootLayout({ children }: LayoutProps) {
-  return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={themes}>
-            <CartProvider>
-              <Header />
-              <Link href="/">
-                <br />
-                <br />
-                <br />
-              </Link>
+	return (
+		<html lang="en">
+			<head>
+				<link rel="icon" href="/favicon.ico" />
+			</head>
+			<body>
+				<AppRouterCacheProvider>
+					<ThemeProvider theme={themes}>
+						<CartProvider>
+							<Header />
+							<Link href="/">
+								<br />
+								<br />
+								<br />
+							</Link>
 
-              {children}
-              <Footer />
-            </CartProvider>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
-  );
+							{children}
+							<Footer />
+						</CartProvider>
+					</ThemeProvider>
+				</AppRouterCacheProvider>
+			</body>
+		</html>
+	);
 }
