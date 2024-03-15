@@ -4,7 +4,7 @@ function CheckoutPage() {
 	return (
 		<span>
 			<Checkout />
-			<div>Does this work</div>
+			<div></div>
 		</span>
 	);
 }

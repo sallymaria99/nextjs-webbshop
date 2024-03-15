@@ -13,6 +13,7 @@ import Stepper from "@mui/material/Stepper";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import AddressForm from "./AdressForm";
+//import PaymentForm from "./PaymentForm";
 import PaymentForm from "./PaymentForm";
 import Review from "./Review";
 
@@ -35,15 +36,17 @@ function Copyright() {
 	);
 }
 
-const steps = ["Shipping address", "Payment details", "Review your order"];
+const steps = ["Shipping address", "Review your order and submit"];
+
+//"Payment details",
 
 function getStepContent(step: number) {
 	switch (step) {
 		case 0:
 			return <AddressForm />;
-		case 1:
+			//	case 1:
 			return <PaymentForm />;
-		case 2:
+		case 1:
 			return <Review />;
 		default:
 			throw new Error("Unknown step");
@@ -124,7 +127,7 @@ export default function Checkout() {
 									onClick={handleNext}
 									sx={{ mt: 3, ml: 1 }}
 								>
-									{activeStep === steps.length - 1 ? "Place order" : "Next"}
+									{activeStep === steps.length - 1 ? "Submit order" : "Next"}
 								</Button>
 							</Box>
 						</React.Fragment>
