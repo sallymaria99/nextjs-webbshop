@@ -1,11 +1,10 @@
 "use client";
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import Image from "next/image";
 import { products } from "@/data";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
+import Image from "next/image";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -17,10 +16,10 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function AdminPage() {
   return (
-    <main>
+    <Box component="main" data-cy="product">
       <Box sx={{ flexGrow: 1 }}>
         {products.map((product) => (
-          <Grid key={product.id} item xs={8}>
+          <Grid key={product.id} data-cy="product-id" item xs={8}>
             <Item>
               <Image
                 src={product.image}
@@ -33,6 +32,6 @@ export default function AdminPage() {
           </Grid>
         ))}
       </Box>
-    </main>
+    </Box>
   );
 }

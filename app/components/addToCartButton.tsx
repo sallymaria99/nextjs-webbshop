@@ -1,33 +1,39 @@
 "use client";
 
-import { Button, styled } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Product } from "@/data";
+import { ShoppingCartOutlined } from "@mui/icons-material";
+import { Button } from "@mui/material";
+import { useCart } from "../contexts/CartContext";
 
-const StyledButton = styled(Button)({
-  backgroundColor: "#4D559D",
-  color: "white",
-});
-
+//lägga till produktknapp
 interface AddToCartProps {
   product: Product;
 }
 
 export default function AddToCartButton({ product }: AddToCartProps) {
+  const { addToCart } = useCart();
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
+
+    addToCart(product);
+
     // Hantera klick på knappen
     // Prata med kundvagnskontexten
     // förhindra att länken följs e.preventDefault (e.stopPropagation)
   };
 
   return (
-    <StyledButton
+    <Button
+      style={{
+        backgroundColor: "#4D559D",
+        color: "white",
+      }}
+      data-cy="product-buy-button"
       variant="contained"
-      startIcon={<ShoppingCartIcon />}
+      startIcon={<ShoppingCartOutlined />}
       onClick={handleClick}
     >
       Add to cart
-    </StyledButton>
+    </Button>
   );
 }

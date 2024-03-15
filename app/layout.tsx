@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import CartProvider from "./contexts/CartContext";
 import themes from "./themes/theme";
 import { LayoutProps } from "./types";
 
@@ -22,16 +23,17 @@ export default function RootLayout({ children }: LayoutProps) {
 			<body>
 				<AppRouterCacheProvider>
 					<ThemeProvider theme={themes}>
-						<Header />
+						<CartProvider>
+							<Header />
+							<Link href="/">
+								<br />
+								<br />
+								<br />
+							</Link>
 
-						<Link href="/">
-							<br />
-							<br />
-							<br />
-						</Link>
-
-						{children}
-						<Footer />
+							{children}
+							<Footer />
+						</CartProvider>
 					</ThemeProvider>
 				</AppRouterCacheProvider>
 			</body>
