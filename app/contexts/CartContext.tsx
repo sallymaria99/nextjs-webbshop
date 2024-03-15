@@ -15,7 +15,7 @@ interface CartContextData {
   cart: CartItem[];
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
-  clearCart: () => void;
+  clearCart: (productId: string) => void;
   setCart: Dispatch<SetStateAction<CartItem[]>>;
 }
 
@@ -25,14 +25,21 @@ const CART_LOCAL_STORAGE_KEY = "cart";
 
 // Provider componenten
 function CartProvider({ children }: PropsWithChildren<{}>) {
-  const [cart, setCart] = useState<CartItem[]>(() => {
-    const savedCart = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    const savedCart = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isLoaded) return;
     localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify(cart));
-  }, [cart]);
+  }, [cart, isLoaded]);
 
   const addToCart = (product: Product) => {
     setCart((currentCart) => {
@@ -54,11 +61,25 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
   };
 
   const removeFromCart = (productId: string) => {
-    setCart((currentCart) => currentCart);
+    setCart((currentCart) => {
+      const cartItem = currentCart.find((item) => item.id === productId);
+      if (cartItem && cartItem.quantity > 1) {
+        return currentCart.map((item) => {
+          if (item.id === productId) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        });
+      } else {
+        return currentCart.filter((item) => item.id !== productId);
+      }
+    });
   };
 
-  const clearCart = () => {
-    setCart([]);
+  const clearCart = (productId: string) => {
+    setCart((currentCart) => {
+      return currentCart.filter((item) => item.id !== productId);
+    });
   };
 
   return (
