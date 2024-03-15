@@ -7,7 +7,7 @@ interface ProductsContextType {
   products: Product[];
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
   addProduct: (newProduct: Product) => void;
-  editProduct: (productId: string) => void;
+  editProduct: (updatedProduct: Product) => void;
   removeProduct: (productId: string) => void;
 }
 
@@ -71,8 +71,18 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
     });
   };
 
-  const editProduct = (productId: string) => {
-    return console.log("hej");
+  const editProduct = (updatedProduct: Product) => {
+    setProducts((prevProducts) => {
+      const otherProducts = prevProducts.filter(
+        (product) => product.id !== updatedProduct.id
+      );
+      const newProducts = [...otherProducts, updatedProduct];
+      localStorage.setItem(
+        PRODUCTS_LOCAL_STORAGE_KEY,
+        JSON.stringify(newProducts)
+      );
+      return newProducts;
+    });
   };
 
   return (
