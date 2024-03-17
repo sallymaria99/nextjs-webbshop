@@ -22,7 +22,7 @@ export default function AddressForm() {
 	};
 
 	return (
-		<form onSubmit={form.handleSubmit(save)}>
+		<form onSubmit={form.handleSubmit(save)} data-cy="customer-form">
 			<Typography variant="h6" gutterBottom>
 				Shipping address
 			</Typography>
