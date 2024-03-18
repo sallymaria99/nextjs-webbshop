@@ -23,11 +23,12 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, mx: "auto" }}>
       <CardActionArea
         LinkComponent={Link}
         href={`/product/${product.id}`}
         data-cy="product-id"
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
         <CardMedia
           component="img"
