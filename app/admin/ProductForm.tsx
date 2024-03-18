@@ -20,7 +20,13 @@ const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
 
   useEffect(() => {
     if (product) {
-      setFormData(product);
+      setFormData({
+        id: product.id,
+        title: product.title,
+        description: product.description,
+        image: product.image,
+        price: product.price,
+      });
     }
   }, [product]);
 

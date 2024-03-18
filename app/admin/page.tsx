@@ -30,7 +30,10 @@ export default function AdminPage() {
         {products.map((product) => (
           <Grid key={product.id} data-cy="product-id" item xs={8}>
             <Item>
-              <Link href={`/admin/overview/${product.id}`}>
+              <Link
+                href={`/admin/overview/${product.id}`}
+                style={{ cursor: "pointer" }}
+              >
                 <Image
                   src={product.image}
                   width={100}
