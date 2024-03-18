@@ -60,6 +60,7 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
       }
     });
 
+    // Toast kod
     setToastMessage(
       `${product.title} has been successfully added to your cart`
     );
@@ -91,6 +92,7 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
     });
   };
 
+  // Toast kod
   const handleCloseToast = () => {
     setToastOpen(false);
   };
@@ -102,6 +104,7 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
       >
         {children}
       </CartContext.Provider>
+
       <Toast
         open={toastOpen}
         message={ToastMessage}
