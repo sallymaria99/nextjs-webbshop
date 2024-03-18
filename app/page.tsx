@@ -7,12 +7,22 @@ import { useProducts } from "./contexts/ProductContext";
 function Home() {
   const { products } = useProducts();
   return (
-    <Box component="main" data-cy="product" sx={{ width: "100%" }}>
+    <Box
+      component="main"
+      data-cy="product"
+      sx={{
+        width: "100%",
+        backgroundImage: `url("/backgroundHome.png")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <Typography variant="h1" textAlign="center">
         Home
       </Typography>
       <Typography>
-        Det här är startsidan. Här ska alla produkterna visas.
+        Det här är startsidan. Här behöver vi en liten om oss.
       </Typography>
       <Grid container spacing={2} justifyContent="center">
         {products.map((product) => (
