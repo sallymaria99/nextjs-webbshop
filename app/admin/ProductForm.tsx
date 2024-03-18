@@ -1,80 +1,75 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Product, ProductSchema } from "@/data";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button, TextField } from "@mui/material";
+import { nanoid } from "nanoid";
+import { useForm } from "react-hook-form";
 import { useProducts } from "../contexts/ProductContext";
-import { products, Product } from "@/data";
-import { Box, Button, TextField } from "@mui/material";
 
 interface ProductFormProps {
   product?: Product;
 }
 
 const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
-  const { addProduct, editProduct } = useProducts();
-  const [formData, setFormData] = useState<Product>({
-    id: product?.id || "",
-    title: product?.title || "",
-    description: product?.description || "",
-    image: product?.image || "",
-    price: product?.price || 0,
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<Product>({
+    resolver: zodResolver(ProductSchema),
+    defaultValues: product || { id: nanoid() },
   });
 
-  useEffect(() => {
-    if (product) {
-      setFormData(product);
-    }
-  }, [product]);
+  const { addProduct, editProduct } = useProducts();
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (data: Product) => {
     if (product) {
-      editProduct(formData);
+      editProduct(data);
     } else {
-      addProduct(formData);
+      addProduct({ ...data, id: nanoid() });
     }
   };
+
+  console.log(errors);
 
   return (
-    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
         margin="normal"
-        name="title"
         label="Product Title"
-        value={formData.title}
-        onChange={handleChange}
+        {...register("title")}
+        error={Boolean(errors.title)}
+        helperText={errors.title?.message}
       />
       <TextField
         margin="normal"
-        name="description"
         label="Description"
-        value={formData.description}
-        onChange={handleChange}
+        {...register("description")}
+        error={Boolean(errors.description)}
+        helperText={errors.description?.message}
       />
       <TextField
         margin="normal"
-        name="image"
         label="Image URL"
-        value={formData.image}
-        onChange={handleChange}
+        {...register("image")}
+        error={Boolean(errors.image)}
+        helperText={errors.image?.message}
+
+        //FormHelperTextProps={{"m"}}
       />
       <TextField
         margin="normal"
-        name="price"
         label="Price"
         type="number"
-        value={formData.price}
-        onChange={handleChange}
+        {...register("price")}
+        error={Boolean(errors.price)}
+        helperText={errors.price?.message}
       />
       <Button type="submit" variant="contained">
         {product ? "Update Product" : "Add Product"}
       </Button>
-    </Box>
+    </form>
   );
 };
 
