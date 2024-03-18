@@ -1,14 +1,13 @@
 "use client";
-import { Button, IconButton, Link } from "@mui/material";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { IconButton, Link } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { useProducts } from "../contexts/ProductContext";
-import MultiActionAreaCard from "../components/productCard";
 import AdminDelete from "../components/adminDelete";
+import { useProducts } from "../contexts/ProductContext";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -22,7 +21,7 @@ export default function AdminPage() {
   const { products } = useProducts();
   return (
     <Box component="main" data-cy="product">
-      <IconButton component={Link} href="/admin/overview">
+      <IconButton component={Link} href="/admin/product/new">
         <AddCircleOutlineIcon />
       </IconButton>
 
@@ -30,10 +29,7 @@ export default function AdminPage() {
         {products.map((product) => (
           <Grid key={product.id} data-cy="product-id" item xs={8}>
             <Item>
-              <Link
-                href={`/admin/overview/${product.id}`}
-                style={{ cursor: "pointer" }}
-              >
+              <Link href={`/admin/product/${product.id}`}>
                 <Image
                   src={product.image}
                   width={100}
