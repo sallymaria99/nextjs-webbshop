@@ -30,6 +30,7 @@ export default function Review() {
 		);
 		setTotalPrice(itemCount);
 	}, [cart]);
+
 	//	console.log(totalPrice);
 
 	//SumOrder();
