@@ -80,12 +80,13 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 ---
 
 - `data-cy="cart-link"` knappen för att gå till kundvagnen/kassasidan. <!-- Tillagd i Footer -->
-- `data-cy="cart-items-count-badge"` siffran intill kundvagnsikonen som visar antalet tillagda produkter.
-- `data-cy="cart-item"` en produktrad på kassasidan.
-- `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida.
-- `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.
-- `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida.
-- `data-cy="total-price"` totala priset för alla produkter i kundvagnen.
+- `data-cy="cart-items-count-badge"` siffran intill kundvagnsikonen som visar antalet tillagda produkter. <!-- Tillagd i cartButton -->
+- `data-cy="cart-item"` en produktrad på kassasidan. <!-- Tillag på ceckout, page -->
+
+- `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida. <!-- Tillag på quantbutton -->
+- `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.<!-- Tillag på quantbutton -->
+- `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida. <!-- Tillag på quantbutton -->
+- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillag på ceckout, page -->
 
 ---
 
