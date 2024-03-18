@@ -83,26 +83,26 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 - `data-cy="cart-items-count-badge"` siffran intill kundvagnsikonen som visar antalet tillagda produkter. <!-- Tillagd i cartButton -->
 - `data-cy="cart-item"` en produktrad på kassasidan. <!-- Tillag på ceckout, page -->
 
-- `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida. <!-- Tillag på quantbutton -->
-- `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.<!-- Tillag på quantbutton -->
-- `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida. <!-- Tillag på quantbutton -->
-- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillag på ceckout, page -->
+- `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida. <!-- Tillagd på quantbutton -->
+- `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.<!-- Tillagd på quantbutton -->
+- `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida. <!-- Tillagd på quantbutton -->
+- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillagd på ceckout, page -->
 
 ---
 
-- `data-cy="customer-form"` formulär för att fylla i kunduppgifter på checkout-sidan. <!-- Tillagd -->
-- `data-cy="customer-name"` kundens namn (som fylls i på checkout-sidan). <!-- Tillagd -->
-- `data-cy="customer-address"` kundens gatuadress (som fylls i på checkout-sidan). <!-- Tillagd -->
-- `data-cy="customer-zipcode"` kundens postnummer (som fylls i på checkout-sidan). <!-- Tillagd -->
-- `data-cy="customer-city"` kundens stad (som fylls i på checkout-sidan). <!-- Tillagd -->
-- `data-cy="customer-email"` kundens emailadress (som fylls i på checkout-sidan). <!-- Tillagd -->
-- `data-cy="customer-phone"` kundens telefonnummer (som fylls i på checkout-sidan). <!-- Tillagd -->
-- `data-cy="customer-name-error"` felmeddelande vid felaktigt angivet namn. <!-- Tillagd -->
-- `data-cy="customer-address-error"` felmeddelande vid felaktigt angiven adress. <!-- Tillagd -->
-- `data-cy="customer-zipcode-error"` felmeddelande vid felaktigt angivet postnummer. <!-- Tillagd -->
-- `data-cy="customer-city-error"` felmeddelande vid felaktigt angiven stad. <!-- Tillagd -->
-- `data-cy="customer-email-error"` felmeddelande vid felaktigt angiven emailadress. <!-- Tillagd -->
-- `data-cy="customer-phone-error"` felmeddelande vid felaktigt angivet telefonnummer. <!-- Tillagd -->
+- `data-cy="customer-form"` formulär för att fylla i kunduppgifter på checkout-sidan.
+- `data-cy="customer-name"` kundens namn (som fylls i på checkout-sidan).
+- `data-cy="customer-address"` kundens gatuadress (som fylls i på checkout-sidan).
+- `data-cy="customer-zipcode"` kundens postnummer (som fylls i på checkout-sidan).
+- `data-cy="customer-city"` kundens stad (som fylls i på checkout-sidan).
+- `data-cy="customer-email"` kundens emailadress (som fylls i på checkout-sidan).
+- `data-cy="customer-phone"` kundens telefonnummer (som fylls i på checkout-sidan).
+- `data-cy="customer-name-error"` felmeddelande vid felaktigt angivet namn.
+- `data-cy="customer-address-error"` felmeddelande vid felaktigt angiven adress.
+- `data-cy="customer-zipcode-error"` felmeddelande vid felaktigt angivet postnummer.
+- `data-cy="customer-city-error"` felmeddelande vid felaktigt angiven stad.
+- `data-cy="customer-email-error"` felmeddelande vid felaktigt angiven emailadress.
+- `data-cy="customer-phone-error"` felmeddelande vid felaktigt angivet telefonnummer.
 
 ---
 
