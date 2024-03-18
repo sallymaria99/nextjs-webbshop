@@ -7,6 +7,7 @@ import Header from "./components/header";
 import CartProvider from "./contexts/CartContext";
 import themes from "./themes/theme";
 import { LayoutProps } from "./types";
+import { ProductsProvider } from "./contexts/ProductContext";
 
 /* Beskriv din hemsida för sökmotorerna */
 export const metadata: Metadata = {
@@ -15,28 +16,30 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps) {
-	return (
-		<html lang="en">
-			<head>
-				<link rel="icon" href="/favicon.ico" />
-			</head>
-			<body>
-				<AppRouterCacheProvider>
-					<ThemeProvider theme={themes}>
-						<CartProvider>
-							<Header />
-							<Link href="/">
-								<br />
-								<br />
-								<br />
-							</Link>
 
-							{children}
-							<Footer />
-						</CartProvider>
-					</ThemeProvider>
-				</AppRouterCacheProvider>
-			</body>
-		</html>
-	);
-}
+  return (
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={themes}>
+            <ProductsProvider>
+              <CartProvider>
+                <Header />
+                <Link href="/">
+                  <br />
+                  <br />
+                  <br />
+                </Link>
+
+                {children}
+                <Footer />
+              </CartProvider>
+            </ProductsProvider>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
+    </html>
+  );
