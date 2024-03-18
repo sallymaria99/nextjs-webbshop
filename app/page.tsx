@@ -7,14 +7,25 @@ import { useProducts } from "./contexts/ProductContext";
 function Home() {
   const { products } = useProducts();
   return (
-    <Box component="main" data-cy="product">
-      <Typography variant="h1">Home</Typography>
+    <Box component="main" data-cy="product" sx={{ width: "100%" }}>
+      <Typography variant="h1" textAlign="center">
+        Home
+      </Typography>
       <Typography>
         Det här är startsidan. Här ska alla produkterna visas.
       </Typography>
-      <Grid container spacing={2} justifyContent="center" alignContent="center">
+      <Grid container spacing={2} justifyContent="center">
         {products.map((product) => (
-          <Grid key={product.id} data-cy="product-id" item xs={8}>
+          <Grid
+            key={product.id}
+            data-cy="product-id"
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            lg={4}
+            xl={3}
+          >
             <MultiActionAreaCard
               id={product.id}
               image={product.image}
