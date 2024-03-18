@@ -26,7 +26,7 @@ const Toast: React.FC<ToastProps> = ({ open, message, onClose }) => {
 
   return (
     <Snackbar open={open} autoHideDuration={6000} onClose={onClose}>
-      <div>
+      <div data-cy="added-to-cart-toast">
         <Alert onClose={onClose} severity="success">
           {message}
         </Alert>

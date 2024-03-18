@@ -5,9 +5,9 @@ import Link from "next/link";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import CartProvider from "./contexts/CartContext";
+import { ProductsProvider } from "./contexts/ProductContext";
 import themes from "./themes/theme";
 import { LayoutProps } from "./types";
-import { ProductsProvider } from "./contexts/ProductContext";
 
 /* Beskriv din hemsida för sökmotorerna */
 export const metadata: Metadata = {
