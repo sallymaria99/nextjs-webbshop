@@ -26,12 +26,12 @@ export default function AddressForm() {
 			<Typography variant="h6" gutterBottom>
 				Shipping address
 			</Typography>
-
+			x
 			<Grid container spacing={3}>
 				<Grid item xs={12} sm={6}>
 					<TextField
-						{...form.register("firstName")}
-						label="First name"
+						{...form.register("customerName")}
+						label="Customer name"
 						fullWidth
 						autoComplete="given-name"
 						variant="standard"
@@ -39,19 +39,8 @@ export default function AddressForm() {
 						FormHelperTextProps={
 							{ "data-cy": "customer-name-error" } as FormHelperTextProps
 						}
-						error={Boolean(form.formState.errors.firstName)}
-						helperText={form.formState.errors.firstName?.message}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						{...form.register("lastName")}
-						label="Last name *"
-						fullWidth
-						autoComplete="family-name"
-						variant="standard"
-						error={Boolean(form.formState.errors.lastName)}
-						helperText={form.formState.errors.lastName?.message}
+						error={Boolean(form.formState.errors.customerName)}
+						helperText={form.formState.errors.customerName?.message}
 					/>
 				</Grid>
 				<Grid item xs={12}>
