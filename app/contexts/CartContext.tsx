@@ -9,6 +9,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import Toast from "../components/toast";
 
 // Contexten
 interface CartContextData {
@@ -41,6 +42,9 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
     localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify(cart));
   }, [cart, isLoaded]);
 
+  const [toastOpen, setToastOpen] = useState(false);
+  const [ToastMessage, setToastMessage] = useState("");
+
   const addToCart = (product: Product) => {
     setCart((currentCart) => {
       const exists = currentCart.some((item) => item.id === product.id);
@@ -55,6 +59,12 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
         return [...currentCart, { ...product, quantity: 1 }];
       }
     });
+
+    // Toast kod
+    setToastMessage(
+      `${product.title} has been successfully added to your cart`
+    );
+    setToastOpen(true);
 
     // hantera logik för att lägga till en produkt i varukorgen
     // Kolla om produkten redan finns i varukorgen? quantity++???
@@ -82,12 +92,25 @@ function CartProvider({ children }: PropsWithChildren<{}>) {
     });
   };
 
+  // Toast kod
+  const handleCloseToast = () => {
+    setToastOpen(false);
+  };
+
   return (
-    <CartContext.Provider
-      value={{ cart, setCart, addToCart, removeFromCart, clearCart }}
-    >
-      {children}
-    </CartContext.Provider>
+    <>
+      <CartContext.Provider
+        value={{ cart, setCart, addToCart, removeFromCart, clearCart }}
+      >
+        {children}
+      </CartContext.Provider>
+
+      <Toast
+        open={toastOpen}
+        message={ToastMessage}
+        onClose={handleCloseToast}
+      />
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
-import { products, Product } from "@/data";
+import AddToCartButton from "@/app/components/addToCartButton";
+import { Product, products } from "@/data";
 import Image from "next/image";
 
 type PageProps = { params: { productId: string } };
@@ -24,6 +25,7 @@ function ProductPage({ params }: PageProps) {
       />
       <p>{selectedProduct.description}</p>
       <h3>{selectedProduct.price}</h3>
+      <AddToCartButton product={selectedProduct} />
     </div>
   );
 }

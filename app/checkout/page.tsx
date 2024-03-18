@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import DeleteButton from "../components/deleteButton";
 import HandleQuantbutton from "../components/quantbutton";
 import { useCart } from "../contexts/CartContext";
+import Checkout from "./Checkout";
 
 function CheckoutPage() {
   const { cart } = useCart();
@@ -45,8 +46,10 @@ function CheckoutPage() {
       ) : (
         <Typography variant="h1">Din varukorg är tom.</Typography>
       )}
+      <span>
+        <Checkout />
+      </span>
     </main>
   );
 }
-
 export default CheckoutPage;
