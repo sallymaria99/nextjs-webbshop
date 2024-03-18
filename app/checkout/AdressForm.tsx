@@ -26,14 +26,14 @@ export default function AddressForm() {
 			<Typography variant="h6" gutterBottom>
 				Shipping address
 			</Typography>
-			x
+
 			<Grid container spacing={3}>
 				<Grid item xs={12} sm={6}>
 					<TextField
 						{...form.register("customerName")}
-						label="Customer name"
+						label="Customer name *"
 						fullWidth
-						autoComplete="given-name"
+						autoComplete="name"
 						variant="standard"
 						inputProps={{ "data-cy": "customer-name" }}
 						FormHelperTextProps={
@@ -46,7 +46,7 @@ export default function AddressForm() {
 				<Grid item xs={12}>
 					<TextField
 						{...form.register("email")}
-						label="Email"
+						label="Email *"
 						fullWidth
 						autoComplete="email"
 						variant="standard"
@@ -62,7 +62,7 @@ export default function AddressForm() {
 				<Grid item xs={12}>
 					<TextField
 						{...form.register("address")}
-						label="Address"
+						label="Address *"
 						fullWidth
 						autoComplete="shipping address"
 						variant="standard"
@@ -77,7 +77,7 @@ export default function AddressForm() {
 				<Grid item xs={12} sm={6}>
 					<TextField
 						{...form.register("city")}
-						label="City"
+						label="City *"
 						fullWidth
 						autoComplete="shipping address-level2"
 						variant="standard"
