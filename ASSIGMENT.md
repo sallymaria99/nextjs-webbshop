@@ -83,14 +83,14 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 - `data-cy="cart-items-count-badge"` siffran intill kundvagnsikonen som visar antalet tillagda produkter. <!-- Tillagd i cartButton -->
 - `data-cy="cart-item"` en produktrad på kassasidan. <!-- Tillag på ceckout, page -->
 
-- `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida. <!-- Tillag på quantbutton -->
-- `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.<!-- Tillag på quantbutton -->
-- `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida. <!-- Tillag på quantbutton -->
-- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillag på ceckout, page -->
+- `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida. <!-- Tillagd på quantbutton -->
+- `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.<!-- Tillagd på quantbutton -->
+- `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida. <!-- Tillagd på quantbutton -->
+- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillagd på ceckout, page -->
 
 ---
 
-- `data-cy="customer-form"` formulär för att fylla i kunduppgifter på checkout-sidan.
+- `data-cy="customer-form"` formulär för att fylla i kunduppgifter på checkout-sidan. <!-- Tillagd på adressform -->
 - `data-cy="customer-name"` kundens namn (som fylls i på checkout-sidan).
 - `data-cy="customer-address"` kundens gatuadress (som fylls i på checkout-sidan).
 - `data-cy="customer-zipcode"` kundens postnummer (som fylls i på checkout-sidan).
