@@ -5,18 +5,17 @@ import Link from "next/link";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import CartProvider from "./contexts/CartContext";
+import { ProductsProvider } from "./contexts/ProductContext";
 import themes from "./themes/theme";
 import { LayoutProps } from "./types";
-import { ProductsProvider } from "./contexts/ProductContext";
 
 /* Beskriv din hemsida för sökmotorerna */
 export const metadata: Metadata = {
-	title: "Webbshop",
-	description: "Dina favoritprodukter online till en bra pris...",
+  title: "Webbshop",
+  description: "Dina favoritprodukter online till en bra pris...",
 };
 
 export default function RootLayout({ children }: LayoutProps) {
-
   return (
     <html lang="en">
       <head>
@@ -43,3 +42,4 @@ export default function RootLayout({ children }: LayoutProps) {
       </body>
     </html>
   );
+}

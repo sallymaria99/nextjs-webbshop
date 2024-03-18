@@ -75,6 +75,7 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 - `data-cy="product-description"` beskrivningen av en produkt. <!-- tillagt i home-->
 - `data-cy="product-buy-button"` lägg till i kundvagnen knappen. <!-- Tillagd i Home()-->
 - `data-cy="added-to-cart-toast"` toast som visas när en produkt läggs till i kundvagnen.
+<!-- Tillagd i Toast  -->
 
 ---
 
