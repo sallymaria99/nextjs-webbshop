@@ -90,24 +90,24 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 
 ---
 
-- `data-cy="customer-form"` formulär för att fylla i kunduppgifter på checkout-sidan.
-- `data-cy="customer-name"` kundens namn (som fylls i på checkout-sidan).
-- `data-cy="customer-address"` kundens gatuadress (som fylls i på checkout-sidan).
-- `data-cy="customer-zipcode"` kundens postnummer (som fylls i på checkout-sidan).
-- `data-cy="customer-city"` kundens stad (som fylls i på checkout-sidan).
-- `data-cy="customer-email"` kundens emailadress (som fylls i på checkout-sidan).
-- `data-cy="customer-phone"` kundens telefonnummer (som fylls i på checkout-sidan).
-- `data-cy="customer-name-error"` felmeddelande vid felaktigt angivet namn.
-- `data-cy="customer-address-error"` felmeddelande vid felaktigt angiven adress.
-- `data-cy="customer-zipcode-error"` felmeddelande vid felaktigt angivet postnummer.
-- `data-cy="customer-city-error"` felmeddelande vid felaktigt angiven stad.
-- `data-cy="customer-email-error"` felmeddelande vid felaktigt angiven emailadress.
-- `data-cy="customer-phone-error"` felmeddelande vid felaktigt angivet telefonnummer.
+- `data-cy="customer-form"` formulär för att fylla i kunduppgifter på checkout-sidan. <!-- Tillagd -->
+- `data-cy="customer-name"` kundens namn (som fylls i på checkout-sidan). <!-- Tillagd -->
+- `data-cy="customer-address"` kundens gatuadress (som fylls i på checkout-sidan). <!-- Tillagd -->
+- `data-cy="customer-zipcode"` kundens postnummer (som fylls i på checkout-sidan). <!-- Tillagd -->
+- `data-cy="customer-city"` kundens stad (som fylls i på checkout-sidan). <!-- Tillagd -->
+- `data-cy="customer-email"` kundens emailadress (som fylls i på checkout-sidan). <!-- Tillagd -->
+- `data-cy="customer-phone"` kundens telefonnummer (som fylls i på checkout-sidan). <!-- Tillagd -->
+- `data-cy="customer-name-error"` felmeddelande vid felaktigt angivet namn. <!-- Tillagd -->
+- `data-cy="customer-address-error"` felmeddelande vid felaktigt angiven adress. <!-- Tillagd -->
+- `data-cy="customer-zipcode-error"` felmeddelande vid felaktigt angivet postnummer. <!-- Tillagd -->
+- `data-cy="customer-city-error"` felmeddelande vid felaktigt angiven stad. <!-- Tillagd -->
+- `data-cy="customer-email-error"` felmeddelande vid felaktigt angiven emailadress. <!-- Tillagd -->
+- `data-cy="customer-phone-error"` felmeddelande vid felaktigt angivet telefonnummer. <!-- Tillagd -->
 
 ---
 
 - `data-cy="admin-link"` den länk/knapp som går till admin. <!-- Tillagd i Header -->
-- `data-cy="admin-add-product"` edit-knappen för admin som ska editera en produkt.
+- `data-cy="admin-add-product"` edit-knappen för admin som ska editera en produkt. <!-- Tillagd i Admin-Page -->
 - `data-cy="admin-edit-product"` edit-knappen för admin som ska editera en produkt.
 - `data-cy="admin-remove-product"` den knapp som ska kunna radera en produkt.
 - `data-cy="confirm-delete-button"` konfirmera att man vill radera en produkt.

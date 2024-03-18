@@ -17,7 +17,7 @@ const Toast: React.FC<ToastProps> = ({ open, message, onClose }) => {
     if (open) {
       const timer = setTimeout(() => {
         onClose();
-      }, 3000);
+      }, 2000);
       return () => {
         clearTimeout(timer);
       };

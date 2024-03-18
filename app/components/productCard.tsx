@@ -23,7 +23,7 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, marginBottom: 10 }}>
       <CardActionArea
         LinkComponent={Link}
         href={`/product/${product.id}`}
