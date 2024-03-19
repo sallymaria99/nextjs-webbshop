@@ -31,7 +31,9 @@ function CartSummary() {
 									width={100}
 									height={100}
 								/>
-								<Typography variant="h6">{cartItem.title}</Typography>
+								<Typography variant="h6" align="center">
+									{cartItem.title}
+								</Typography>
 								<Typography variant="body1">
 									Price: {cartItem.quantity * cartItem.price} SEK
 								</Typography>
@@ -51,9 +53,9 @@ function CartSummary() {
 				</Grid>
 			))}
 			{cart.length === 0 && (
-				<Grid item xs={12}>
+				<Grid item xs={12} marginTop={2}>
 					<Typography variant="h6" textAlign="center">
-						Din varukorg är tom.
+						Your cart is empty.
 					</Typography>
 				</Grid>
 			)}
