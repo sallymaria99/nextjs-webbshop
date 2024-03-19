@@ -4,14 +4,19 @@
  *
  **/
 
-export interface Product  {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  price: number;
-  
-}
+import { z } from "zod";
+
+export const ProductSchema = z.object({
+  id: z.string({ required_error: "Id is obligatory" }),
+  title: z.string({ required_error: "Title is obligatory" }).min(10),
+  description: z
+    .string({ required_error: "Description is obligatory" })
+    .min(10),
+  image: z.string(),
+  price: z.coerce.number({ required_error: "Price is obligatory" }),
+});
+
+export type Product = z.infer<typeof ProductSchema>;
 
 export interface CartItem extends Product {
   quantity: number;

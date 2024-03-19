@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Post, PostSchema } from "./Postschema";
+import { Post, PostSchema } from "./CostumerSchema.tsx";
 
 export default function AddressForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
