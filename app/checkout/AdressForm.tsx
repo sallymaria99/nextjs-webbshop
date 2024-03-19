@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Post, PostSchema } from "./Postschema";
+import { Post, PostSchema } from "./CostumerSchema.tsx";
 
 export default function AddressForm() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -60,7 +60,7 @@ export default function AddressForm() {
 						helperText={form.formState.errors.lastName?.message}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6}>
+				<Grid item xs={12}>
 					<TextField
 						{...form.register("email")}
 						required
@@ -76,7 +76,8 @@ export default function AddressForm() {
 						helperText={form.formState.errors.email?.message}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6}>
+
+				<Grid item xs={12}>
 					<TextField
 						{...form.register("address")}
 						required
@@ -108,18 +109,7 @@ export default function AddressForm() {
 						helperText={form.formState.errors.city?.message}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6}>
-					<TextField
-						{...form.register("country")}
-						required
-						id="country"
-						name="country"
-						label="Country"
-						fullWidth
-						autoComplete="shipping country"
-						variant="standard"
-					/>
-				</Grid>
+
 				<Grid item xs={12} sm={6}>
 					<TextField
 						{...form.register("zipcode")}
@@ -136,8 +126,6 @@ export default function AddressForm() {
 						error={Boolean(form.formState.errors.zipcode)}
 						helperText={form.formState.errors.zipcode?.message}
 					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
 					<TextField
 						{...form.register("phone")}
 						required
@@ -155,7 +143,18 @@ export default function AddressForm() {
 						helperText={form.formState.errors.phone?.message}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6}></Grid>
+				<Grid item xs={12} sm={6}>
+					<TextField
+						{...form.register("country")}
+						required
+						id="country"
+						name="country"
+						label="Country"
+						fullWidth
+						autoComplete="shipping country"
+						variant="standard"
+					/>
+				</Grid>
 				<Grid item xs={12}>
 					{!isSubmitted && (
 						<Button type="submit" variant="contained" color="primary">

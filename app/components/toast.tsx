@@ -17,7 +17,7 @@ const Toast: React.FC<ToastProps> = ({ open, message, onClose }) => {
     if (open) {
       const timer = setTimeout(() => {
         onClose();
-      }, 2000);
+      }, 3000);
       return () => {
         clearTimeout(timer);
       };
@@ -26,9 +26,11 @@ const Toast: React.FC<ToastProps> = ({ open, message, onClose }) => {
 
   return (
     <Snackbar open={open} autoHideDuration={6000} onClose={onClose}>
-      <Alert onClose={onClose} severity="success">
-        {message}
-      </Alert>
+      <div data-cy="added-to-cart-toast">
+        <Alert onClose={onClose} severity="success">
+          {message}
+        </Alert>
+      </div>
     </Snackbar>
   );
 };

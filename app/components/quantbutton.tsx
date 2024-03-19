@@ -27,13 +27,19 @@ export default function Quantbutton(props: ProductId) {
   return (
     <>
       <Box component="div">
-        <IconButton onClick={handleIncrement}>
+        <IconButton
+          onClick={handleIncrement}
+          data-cy="decrease-quantity-button"
+        >
           <AddIcon />
         </IconButton>
-        <Typography variant="h6">{item ? item.quantity : 0}</Typography>{" "}
+        <Typography variant="h6" data-cy="product-quantity">
+          {item ? item.quantity : 0}
+        </Typography>{" "}
         <IconButton
           onClick={handleDecrement}
           disabled={!item || item.quantity <= 0}
+          data-cy="decrease-quantity-button"
         >
           <RemoveIcon />
         </IconButton>
