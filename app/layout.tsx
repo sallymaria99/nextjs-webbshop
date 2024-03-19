@@ -20,7 +20,7 @@ export default function RootLayout({ children }: LayoutProps) {
 			<head>
 				<link rel="icon" href="/favicon.ico" />
 			</head>
-			<body style={{ margin: 0 }}>
+			<body style={{ margin: 0, padding: 0, overflowX: "hidden" }}>
 				<AppRouterCacheProvider>
 					<ThemeProvider theme={themes}>
 						<ProductsProvider>

@@ -11,6 +11,8 @@ function Home() {
 			data-cy="product"
 			sx={{
 				width: "100%",
+				maxWidth: "100vw",
+				overflowX: "hidden",
 				backgroundImage: `url("/backgroundHome.jpg")`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
