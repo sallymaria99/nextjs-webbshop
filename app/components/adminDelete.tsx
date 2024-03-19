@@ -1,6 +1,16 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Box, IconButton } from "@mui/material";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
+} from "@mui/material";
 import { useProducts } from "../contexts/ProductContext";
+import { useState } from "react";
 
 interface DeleteProps {
   id: string;
@@ -8,14 +18,48 @@ interface DeleteProps {
 
 export default function AdminDelete(props: DeleteProps) {
   const { removeProduct } = useProducts();
-  function handleDelete() {
+  const [openConfirmation, setOpenConfirmation] = useState(false);
+
+  const handleDeleteConfirmation = () => {
+    setOpenConfirmation(true);
+  };
+
+  const handleDelete = () => {
     removeProduct(props.id);
-  }
+    setOpenConfirmation(false);
+  };
+
+  const handleCancelDelete = () => {
+    setOpenConfirmation(false);
+  };
+
   return (
     <Box component="div">
-      <IconButton onClick={handleDelete}>
+      <IconButton onClick={handleDeleteConfirmation}>
         <DeleteIcon />
       </IconButton>
+
+      <Dialog
+        open={openConfirmation}
+        onClose={handleCancelDelete}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Delete Products?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Are you sure you want to delete this product?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCancelDelete} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleDelete} color="primary" autoFocus>
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
