@@ -5,9 +5,8 @@ import { useEffect, useState } from "react";
 import DeleteButton from "../components/deleteButton";
 import HandleQuantbutton from "../components/quantbutton";
 import { useCart } from "../contexts/CartContext";
-import Checkout from "./Checkout";
 
-function CheckoutPage() {
+function CartSummary() {
 	const { cart } = useCart();
 	const [totalPrice, setTotalPrice] = useState(0);
 
@@ -18,15 +17,15 @@ function CheckoutPage() {
 		);
 		setTotalPrice(itemCount);
 	}, [cart]);
-	console.log(totalPrice);
+
 	return (
 		<main>
-			<Box component="div" data-cy="total-price">
-				<h1 data-cy="total-price">{totalPrice}</h1>
+			<Box component="div">
+				<h1>{totalPrice}</h1>
 			</Box>
 			{cart.length > 0 ? (
 				cart.map((cartItem) => (
-					<Container key={cartItem.id} data-cy="cart-item">
+					<Container key={cartItem.id}>
 						<Stack direction={"row"}>
 							<Typography variant="h2">{cartItem.title}</Typography>{" "}
 							<Typography variant="h4">
@@ -46,11 +45,7 @@ function CheckoutPage() {
 			) : (
 				<Typography variant="h1">Din varukorg är tom.</Typography>
 			)}
-			<span>
-				<Checkout />
-			</span>
 		</main>
 	);
 }
-
-export default CheckoutPage;
+export default CartSummary;
