@@ -52,7 +52,9 @@ function CartSummary() {
 			))}
 			{cart.length === 0 && (
 				<Grid item xs={12}>
-					<Typography variant="h1">Din varukorg är tom.</Typography>
+					<Typography variant="h6" textAlign="center">
+						Din varukorg är tom.
+					</Typography>
 				</Grid>
 			)}
 			{cart.length > 0 && (
