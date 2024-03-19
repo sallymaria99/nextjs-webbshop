@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Card, CardContent, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import DeleteButton from "../components/deleteButton";
@@ -19,33 +19,51 @@ function CartSummary() {
 	}, [cart]);
 
 	return (
-		<main>
-			<Box component="div">
-				<h1>{totalPrice}</h1>
-			</Box>
-			{cart.length > 0 ? (
-				cart.map((cartItem) => (
-					<Container key={cartItem.id} data-cy="cart-item">
-						<Stack direction={"row"}>
-							<Typography variant="h2">{cartItem.title}</Typography>{" "}
-							<Typography variant="h4">
-								{cartItem.quantity * cartItem.price}
-							</Typography>
-							<Image
-								src={cartItem.image}
-								alt={cartItem.title}
-								width={50}
-								height={50}
-							></Image>
-						</Stack>
-						<HandleQuantbutton id={cartItem.id} />
-						<DeleteButton id={cartItem.id} />
-					</Container>
-				))
-			) : (
-				<Typography variant="h1">Din varukorg är tom.</Typography>
+		<Grid container spacing={3} justifyContent="center" alignItems="center">
+			{cart.map((cartItem) => (
+				<Grid item xs={10} key={cartItem.id}>
+					<Card>
+						<CardContent>
+							<Stack direction="column" alignItems="center" spacing={1}>
+								<Image
+									src={cartItem.image}
+									alt={cartItem.title}
+									width={100}
+									height={100}
+								/>
+								<Typography variant="h6">{cartItem.title}</Typography>
+								<Typography variant="body1">
+									Price: {cartItem.quantity * cartItem.price} SEK
+								</Typography>
+								<div
+									style={{
+										display: "flex",
+										flexDirection: "row",
+										justifyContent: "center",
+									}}
+								>
+									<HandleQuantbutton id={cartItem.id} />
+									<DeleteButton id={cartItem.id} />
+								</div>
+							</Stack>
+						</CardContent>
+					</Card>
+				</Grid>
+			))}
+			{cart.length === 0 && (
+				<Grid item xs={12}>
+					<Typography variant="h1">Din varukorg är tom.</Typography>
+				</Grid>
 			)}
-		</main>
+			{cart.length > 0 && (
+				<Grid item xs={12}>
+					<Box textAlign="center">
+						<Typography variant="h5">Total Price: {totalPrice} SEK</Typography>
+					</Box>
+				</Grid>
+			)}
+		</Grid>
 	);
 }
+
 export default CartSummary;
