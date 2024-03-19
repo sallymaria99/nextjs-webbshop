@@ -15,7 +15,6 @@ function Home() {
 				{products.map((product) => (
 					<Grid key={product.id} item xs={8} data-cy="product">
 						<MultiActionAreaCard
-							data-cy="product-title"
 							id={product.id}
 							image={product.image}
 							title={product.title}
