@@ -1,7 +1,6 @@
 import { ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import CartProvider from "./contexts/CartContext";
@@ -27,13 +26,6 @@ export default function RootLayout({ children }: LayoutProps) {
 						<ProductsProvider>
 							<CartProvider>
 								<Header />
-								<Link href="/">
-									<br />
-									<br />
-									<br />
-									<br />
-								</Link>
-
 								{children}
 								<Footer />
 							</CartProvider>

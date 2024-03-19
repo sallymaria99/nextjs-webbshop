@@ -13,6 +13,7 @@ export default function Header() {
 	return (
 		<AppBar
 			component="header"
+			position="static"
 			sx={{
 				background: "linear-gradient(to right, #c0c0c0, #f0f0f0)",
 				// alignItems: "center",

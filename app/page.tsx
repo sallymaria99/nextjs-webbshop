@@ -25,7 +25,9 @@ function Home() {
 					backgroundColor: "rgba(255, 255, 255, 0.7)",
 					borderRadius: 4,
 					boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-					width: "auto",
+					width: "400px",
+					height: "auto",
+					margin: 0,
 				}}
 			>
 				<Typography>
