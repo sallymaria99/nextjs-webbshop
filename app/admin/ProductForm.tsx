@@ -21,7 +21,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
     defaultValues: product || { id: nanoid() },
   });
 
+
   const { addProduct, editProduct } = useProducts();
+
 
   const onSubmit = (data: Product) => {
     if (product) {
