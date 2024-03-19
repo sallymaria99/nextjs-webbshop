@@ -11,18 +11,30 @@ function Home() {
 			data-cy="product"
 			sx={{
 				width: "100%",
-				backgroundImage: `url("/backgroundHome.png")`,
+				backgroundImage: `url("/backgroundHome.jpg")`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
 				backgroundRepeat: "no-repeat",
 			}}
 		>
-			<Typography variant="h1" textAlign="center">
-				Home
-			</Typography>
-			<Typography>
-				Det här är startsidan. Här behöver vi en liten om oss.
-			</Typography>
+			<Grid
+				container
+				spacing={1}
+				justifyContent="center"
+				sx={{
+					backgroundColor: "rgba(255, 255, 255, 0.7)",
+					borderRadius: 4,
+					boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+					width: "auto",
+				}}
+			>
+				<Typography>
+					Experience the pinnacle of luxury ice at Luxice. Crafted in
+					Jukkasjärvi, Sweden since 2002, our exclusive collection defines
+					excellence in every chill. Elevate your moments with only the best –
+					discover Luxice.
+				</Typography>
+			</Grid>
 			<Grid container spacing={2} justifyContent="center">
 				{products.map((product) => (
 					<Grid
@@ -31,8 +43,8 @@ function Home() {
 						item
 						xs={12}
 						sm={6}
-						md={6}
-						lg={4}
+						md={4}
+						lg={3}
 						xl={3}
 					>
 						<MultiActionAreaCard
