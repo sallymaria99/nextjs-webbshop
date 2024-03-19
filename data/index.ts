@@ -32,6 +32,7 @@ export const products: Product[] = [
     description:
       "Handcarved icecubes from Jukkasjärvi in Sweden. The perfect cube for a fresh glas of water, and also our cheepest cube. ",
     price: 25000,
+   
   },
   {
     id: "2",

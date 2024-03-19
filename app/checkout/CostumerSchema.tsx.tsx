@@ -1,8 +1,7 @@
 import { z } from "zod";
 
 export const PostSchema = z.object({
-	firstName: z.string({ required_error: "Firstname is obligatory" }),
-	lastName: z.string({ required_error: "Lastname is obligatory" }),
+	customerName: z.string({ required_error: "Firstname is obligatory" }),
 	email: z.string().email({ message: "Please enter a valid email adress" }),
 	address: z
 		.string()

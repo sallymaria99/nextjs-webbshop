@@ -83,10 +83,10 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 - `data-cy="cart-items-count-badge"` siffran intill kundvagnsikonen som visar antalet tillagda produkter. <!-- Tillagd i cartButton -->
 - `data-cy="cart-item"` en produktrad på kassasidan. <!-- Tillag på ceckout, page -->
 
-- `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida. <!-- Tillag på quantbutton -->
-- `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.<!-- Tillag på quantbutton -->
-- `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida. <!-- Tillag på quantbutton -->
-- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillag på ceckout, page -->
+- `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida. <!-- Tillagd på quantbutton -->
+- `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.<!-- Tillagd på quantbutton -->
+- `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida. <!-- Tillagd på quantbutton -->
+- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillagd på ceckout, page -->
 
 ---
 
@@ -107,7 +107,7 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 ---
 
 - `data-cy="admin-link"` den länk/knapp som går till admin. <!-- Tillagd i Header -->
-- `data-cy="admin-add-product"` edit-knappen för admin som ska editera en produkt.
+- `data-cy="admin-add-product"` edit-knappen för admin som ska editera en produkt. <!-- Tillagd i Admin-Page -->
 - `data-cy="admin-edit-product"` edit-knappen för admin som ska editera en produkt.
 - `data-cy="admin-remove-product"` den knapp som ska kunna radera en produkt.
 - `data-cy="confirm-delete-button"` konfirmera att man vill radera en produkt.
