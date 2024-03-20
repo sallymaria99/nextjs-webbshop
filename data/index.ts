@@ -7,13 +7,11 @@
 import { z } from "zod";
 
 export const ProductSchema = z.object({
-  id: z.string({ required_error: "Id is obligatory" }),
-  title: z.string({ required_error: "Title is obligatory" }).min(10),
-  description: z
-    .string({ required_error: "Description is obligatory" })
-    .min(10),
-  image: z.string(),
-  price: z.coerce.number({ required_error: "Price is obligatory" }),
+  id: z.string({ required_error: "Id is obligatory" }).min(1),
+  title: z.string({ required_error: "Title is obligatory" }).min(1),
+  description: z.string({ required_error: "Description is obligatory" }).min(1),
+  image: z.string({ required_error: "Image-URL is obligatory" }).min(1),
+  price: z.coerce.number({ required_error: "Price is obligatory" }).min(1),
 });
 
 export type Product = z.infer<typeof ProductSchema>;
@@ -32,7 +30,6 @@ export const products: Product[] = [
     description:
       "Handcarved icecubes from Jukkasjärvi in Sweden. The perfect cube for a fresh glas of water, and also our cheepest cube. ",
     price: 25000,
-   
   },
   {
     id: "2",
