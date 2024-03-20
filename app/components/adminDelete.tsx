@@ -35,7 +35,10 @@ export default function AdminDelete(props: DeleteProps) {
 
   return (
     <Box component="div">
-      <IconButton onClick={handleDeleteConfirmation}>
+      <IconButton
+        onClick={handleDeleteConfirmation}
+        data-cy="admin-remove-product"
+      >
         <DeleteIcon />
       </IconButton>
 
@@ -55,7 +58,12 @@ export default function AdminDelete(props: DeleteProps) {
           <Button onClick={handleCancelDelete} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleDelete} color="primary" autoFocus>
+          <Button
+            onClick={handleDelete}
+            color="primary"
+            autoFocus
+            data-cy="confirm-delete-button"
+          >
             Delete
           </Button>
         </DialogActions>

@@ -1,5 +1,5 @@
 "use client";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, makeStyles } from "@mui/material/styles";
 import { Quicksand } from "next/font/google";
 
 const quicksand = Quicksand({
