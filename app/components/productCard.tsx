@@ -27,7 +27,6 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
 			<CardActionArea
 				LinkComponent={Link}
 				href={`/product/${product.id}`}
-				data-cy="product-id"
 				sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
 			>
 				<CardMedia
@@ -39,10 +38,19 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
 					sx={{ maxWidth: "100%" }}
 				/>
 				<CardContent sx={{ textAlign: "center" }}>
-					<Typography gutterBottom variant="h5" component="div">
+					<Typography
+						gutterBottom
+						variant="h5"
+						component="div"
+						data-cy="product-title"
+					>
 						{props.title}
 					</Typography>
-					<Typography variant="body2" color="text.secondary">
+					<Typography
+						variant="body2"
+						color="text.secondary"
+						data-cy="product-price"
+					>
 						$ {props.price}
 					</Typography>
 				</CardContent>
