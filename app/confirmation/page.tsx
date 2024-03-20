@@ -14,7 +14,7 @@ import { useCart } from "../contexts/CartContext";
 
 //"Payment details",
 
-export default function ConfirmationPage() {
+export default function Confirmation() {
 	const { cart } = useCart();
 	const [totalPrice, setTotalPrice] = React.useState(0);
 
