@@ -30,7 +30,7 @@ const PRODUCTS_LOCAL_STORAGE_KEY = "products";
 export const ProductsProvider: React.FC<ProductsProviderProps> = ({
   children,
 }) => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(initialProducts);
 
   useEffect(() => {
     const storedProducts = JSON.parse(
