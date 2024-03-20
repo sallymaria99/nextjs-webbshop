@@ -1,12 +1,12 @@
+import AddressForm from "./AdressForm";
 import CartSummary from "./CartSummary";
-import Checkout from "./Checkout";
 
 function CheckoutPage() {
 	return (
 		<main>
 			<CartSummary />
 			<span>
-				<Checkout />
+				<AddressForm />
 			</span>
 		</main>
 	);
