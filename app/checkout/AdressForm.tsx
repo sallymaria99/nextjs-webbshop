@@ -6,20 +6,20 @@ import {
 	Container,
 	CssBaseline,
 	FormHelperTextProps,
-	Link,
 	Paper,
 	Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { nanoid } from "nanoid";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { useForm } from "react-hook-form";
 import CopyRight from "../components/copyRight";
 import { Customer, CustomerSchema } from "./CustomerSchema";
 
 export default function AddressForm() {
-	const [isSubmitted, setIsSubmitted] = useState(false);
+	const router = useRouter();
 
 	const form = useForm<Customer>({
 		defaultValues: { id: nanoid() },
@@ -28,7 +28,7 @@ export default function AddressForm() {
 
 	const save = (data: Customer) => {
 		console.log(data);
-		setIsSubmitted(true);
+		router.push("/confirmation");
 	};
 
 	return (
@@ -166,17 +166,9 @@ export default function AddressForm() {
 								/>
 							</Grid>
 							<Grid item xs={12}>
-								{!isSubmitted && (
-									<Button
-										type="submit"
-										variant="contained"
-										color="primary"
-										component={Link}
-										href="/confirmationPage"
-									>
-										Submit
-									</Button>
-								)}
+								<Button type="submit" variant="contained" color="primary">
+									Submit
+								</Button>
 							</Grid>
 						</Grid>
 					</form>
