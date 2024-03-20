@@ -35,42 +35,57 @@ const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
   console.log(getValues());
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <TextField
-        margin="normal"
-        label="Product Title"
-        {...register("title")}
-        error={Boolean(errors.title)}
-        helperText={errors.title?.message}
-      />
-      <TextField
-        margin="normal"
-        label="Description"
-        {...register("description")}
-        error={Boolean(errors.description)}
-        helperText={errors.description?.message}
-      />
-      <TextField
-        margin="normal"
-        label="Image URL"
-        {...register("image")}
-        error={Boolean(errors.image)}
-        helperText={errors.image?.message}
-
-        //FormHelperTextProps={{"m"}}
-      />
-      <TextField
-        margin="normal"
-        label="Price"
-        type="number"
-        {...register("price")}
-        error={Boolean(errors.price)}
-        helperText={errors.price?.message}
-      />
-      <Button type="submit" variant="contained">
-        {product ? "Update Product" : "Add Product"}
-      </Button>
-    </form>
+    <main>
+      <form onSubmit={handleSubmit(onSubmit)} data-cy="product-form">
+        <input
+          type="text"
+          placeholder="Title"
+          {...register("title")}
+          className={errors.title ? "error" : ""}
+          data-cy="product-title"
+        />
+        {errors.title && (
+          <span className="error-text">{errors.title.message}</span>
+        )}
+        <input
+          type="text"
+          placeholder="Description"
+          {...register("description")}
+          className={errors.description ? "error" : ""}
+          data-cy="product-description"
+        />
+        {errors.image && (
+          <span className="error-text">{errors.description?.message}</span>
+        )}
+        <input
+          type="text"
+          placeholder="Image URL"
+          {...register("image")}
+          className={errors.image ? "error" : ""}
+          data-cy="product-image"
+          //FormHelperTextProps={{"m"}}
+        />
+        {errors.image && (
+          <span className="error-text">{errors.image.message}</span>
+        )}
+        <input
+          type="number"
+          placeholder="Price"
+          {...register("price")}
+          className={errors.price ? "error" : ""}
+          data-cy="product-price"
+        />
+        {errors.price && (
+          <span className="error-text">{errors.price.message}</span>
+        )}
+        <Button type="submit" variant="contained">
+          {product ? "Update Product" : "Add Product"}
+        </Button>
+        <Button variant="contained" href="/admin">
+          Go Back
+        </Button>
+      </form>
+    </main>
   );
 };
 

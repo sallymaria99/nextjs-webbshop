@@ -70,7 +70,7 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 
 - `data-cy="product"` produkt-korten/raden på startsidan & adminsidan. <!-- tillagt i home och admin box för korten-->
 - `data-cy="product-id"` id på en produkt. <!--lägger till i admin och korten-->
-- `data-cy="product-title"` titeln på en produkt.<!-- tillagt i home-->
+- `data-cy="product-title"` titeln på en produkt.<!-- tillagt i home + admin-->
 - `data-cy="product-price"` priset på en produkt.<!-- tillagt i home-->
 - `data-cy="product-description"` beskrivningen av en produkt. <!-- tillagt i home-->
 - `data-cy="product-buy-button"` lägg till i kundvagnen knappen. <!-- Tillagd i Home()-->
@@ -108,7 +108,7 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 
 - `data-cy="admin-link"` den länk/knapp som går till admin. <!-- Tillagd i Header -->
 - `data-cy="admin-add-product"` edit-knappen för admin som ska editera en produkt. <!-- Tillagd i Admin-Page -->
-- `data-cy="admin-edit-product"` edit-knappen för admin som ska editera en produkt.
+- `data-cy="admin-edit-product"` edit-knappen för admin som ska editera en produkt. <!-- Tillagd i AdminCard -->
 - `data-cy="admin-remove-product"` den knapp som ska kunna radera en produkt.
 - `data-cy="confirm-delete-button"` konfirmera att man vill radera en produkt.
 
