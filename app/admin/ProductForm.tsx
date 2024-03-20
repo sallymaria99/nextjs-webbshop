@@ -1,16 +1,21 @@
 "use client";
-import { Product, ProductSchema } from "@/data";
+import { Product, ProductSchema, products } from "@/data";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, TextField } from "@mui/material";
+import { Button, FormHelperTextProps, TextField } from "@mui/material";
 import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
-import { useProducts } from "../contexts/ProductContext";
+import {
+  PRODUCTS_LOCAL_STORAGE_KEY,
+  useProducts,
+} from "../contexts/ProductContext";
+import { useRouter } from "next/navigation";
 
 interface ProductFormProps {
   product?: Product;
 }
 
 const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -30,60 +35,83 @@ const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
     } else {
       addProduct({ ...data, id: nanoid() });
     }
+    localStorage.setItem(PRODUCTS_LOCAL_STORAGE_KEY, JSON.stringify(products));
+    router.push("/admin");
   };
 
   console.log(getValues());
 
   return (
     <main>
-      <form onSubmit={handleSubmit(onSubmit)} data-cy="product-form">
-        <input
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        data-cy="product-form"
+        style={{ display: "flex", flexDirection: "column", padding: "3rem" }}
+      >
+        <TextField
           type="text"
+          label="Product Title"
           placeholder="Title"
           {...register("title")}
-          className={errors.title ? "error" : ""}
-          data-cy="product-title"
+          error={Boolean(errors.title)}
+          helperText={errors.title?.message}
+          sx={{ margin: "10px" }}
+          inputProps={{ "data-cy": "product-title" }}
+          FormHelperTextProps={
+            { "data-cy": "product-title-error" } as FormHelperTextProps
+          }
         />
-        {errors.title && (
-          <span className="error-text">{errors.title.message}</span>
-        )}
-        <input
+
+        <TextField
           type="text"
+          label="Description"
           placeholder="Description"
           {...register("description")}
-          className={errors.description ? "error" : ""}
-          data-cy="product-description"
+          error={Boolean(errors.description)}
+          helperText={errors.description?.message}
+          style={{ margin: "10px" }}
+          inputProps={{ "data-cy": "product-description" }}
+          FormHelperTextProps={
+            { "data-cy": "product-description-error" } as FormHelperTextProps
+          }
         />
-        {errors.image && (
-          <span className="error-text">{errors.description?.message}</span>
-        )}
-        <input
+
+        <TextField
           type="text"
+          label="ImageURL"
           placeholder="Image URL"
           {...register("image")}
-          className={errors.image ? "error" : ""}
-          data-cy="product-image"
-          //FormHelperTextProps={{"m"}}
+          error={Boolean(errors.image)}
+          helperText={errors.image?.message}
+          style={{ margin: "10px" }}
+          inputProps={{ "data-cy": "product-image" }}
+          FormHelperTextProps={
+            { "data-cy": "product-image-error" } as FormHelperTextProps
+          }
         />
-        {errors.image && (
-          <span className="error-text">{errors.image.message}</span>
-        )}
-        <input
+
+        <TextField
           type="number"
+          label="Price"
           placeholder="Price"
           {...register("price")}
-          className={errors.price ? "error" : ""}
-          data-cy="product-price"
+          error={Boolean(errors.image)}
+          helperText={errors.image?.message}
+          style={{ margin: "10px" }}
+          inputProps={{ "data-cy": "product-price" }}
+          FormHelperTextProps={
+            { "data-cy": "product-price-error" } as FormHelperTextProps
+          }
         />
-        {errors.price && (
-          <span className="error-text">{errors.price.message}</span>
-        )}
-        <Button type="submit" variant="contained">
-          {product ? "Update Product" : "Add Product"}
-        </Button>
-        <Button variant="contained" href="/admin">
-          Go Back
-        </Button>
+
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Button type="submit" variant="contained">
+            {product ? "Update Product" : "Add Product"}
+          </Button>
+          <Button type="button" variant="contained">
+            Go Back
+          </Button>
+        </div>
       </form>
     </main>
   );

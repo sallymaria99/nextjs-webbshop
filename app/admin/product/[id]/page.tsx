@@ -12,7 +12,7 @@ export default function EditProductPage({ params }: Props) {
   const productToEdit = products.find((product) => product.id === params.id);
   return (
     <Container>
-      <ProductForm product={productToEdit} />
+      <ProductForm product={productToEdit} data-cy="product" />
     </Container>
   );
 }

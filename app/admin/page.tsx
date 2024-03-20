@@ -1,6 +1,6 @@
 "use client";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { IconButton, Link, Typography } from "@mui/material";
+import { IconButton, Link, Typography, makeStyles } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -11,7 +11,6 @@ import AdminDelete from "../components/adminDelete";
 import { useState } from "react";
 
 import { useProducts } from "../contexts/ProductContext";
-import MultiActionAreaCard from "../components/productCard";
 import AdminProductCard from "../components/adminProductCard";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -22,15 +21,22 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+/* const useStyles = makeStyles({
+  largeIcon: {
+    fontSize: "3rem",
+  },
+});
+ */
 export default function AdminPage() {
   const { products } = useProducts();
-
+  /*   const classes = useStyles(); */
   return (
-    <Box component="main">
+    <Box component="main" sx={{ paddingBottom: "90px" }}>
       <IconButton
         component={Link}
         href="/admin/product/new"
         data-cy="admin-add-product"
+        /*   className={classes.largeIcon} */
       >
         <AddCircleOutlineIcon />
       </IconButton>
