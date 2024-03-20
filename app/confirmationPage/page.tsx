@@ -97,8 +97,8 @@ export default function ConfirmationPage() {
 							shipped. Have an splendid day.
 						</Typography>
 					</React.Fragment>
+					<Copyright />
 				</Paper>
-				<Copyright />
 			</Container>
 		</React.Fragment>
 	);
