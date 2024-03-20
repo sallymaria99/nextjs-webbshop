@@ -35,7 +35,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
     } else {
       addProduct({ ...data, id: nanoid() });
     }
-    localStorage.setItem(PRODUCTS_LOCAL_STORAGE_KEY, JSON.stringify(products));
+    /* localStorage.setItem(PRODUCTS_LOCAL_STORAGE_KEY, JSON.stringify(products)); */
     router.push("/admin");
   };
 

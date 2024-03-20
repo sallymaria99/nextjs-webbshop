@@ -50,10 +50,10 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({
   const addProduct = (newProduct: Product) => {
     setProducts((prevProducts) => {
       const updatedProducts = [...prevProducts, newProduct];
-      /*  localStorage.setItem(
+      localStorage.setItem(
         PRODUCTS_LOCAL_STORAGE_KEY,
         JSON.stringify(updatedProducts)
-      ); */
+      );
       return updatedProducts;
     });
   };
