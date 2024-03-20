@@ -24,7 +24,7 @@ export default function AdminPage() {
   const { products } = useProducts();
 
   return (
-    <Box component="main" data-cy="product">
+    <Box component="main">
       <IconButton component={Link} href="/admin/product/new">
         <AddCircleOutlineIcon />
       </IconButton>
@@ -32,7 +32,7 @@ export default function AdminPage() {
       <Box sx={{ flexGrow: 1 }}>
         {products.map((product) => (
           <Grid key={product.id} data-cy="product-id" item xs={8}>
-            <Item>
+            <Item data-cy="product">
               <Link href={`/admin/product/${product.id}`}>
                 <Image
                   src={product.image}

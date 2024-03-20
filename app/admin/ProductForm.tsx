@@ -16,6 +16,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
     handleSubmit,
     formState: { errors },
     reset,
+    getValues,
   } = useForm<Product>({
     resolver: zodResolver(ProductSchema),
     defaultValues: product || { id: nanoid() },
@@ -31,7 +32,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product }) => {
     }
   };
 
-  console.log(errors);
+  console.log(getValues());
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
