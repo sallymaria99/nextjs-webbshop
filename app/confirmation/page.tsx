@@ -69,7 +69,6 @@ export default function Confirmation() {
                   <Typography gutterBottom>{customer.city}</Typography>
                   <Typography gutterBottom>{customer.zipcode}</Typography>
                   <Typography gutterBottom>{customer.id}</Typography>
-                  <Typography gutterBottom>{customer.country}</Typography>
                   <Typography gutterBottom>{customer.phone}</Typography>
                 </React.Fragment>
               )}
