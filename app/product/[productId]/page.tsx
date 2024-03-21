@@ -1,5 +1,4 @@
 import AddToCartButton from "@/app/components/addToCartButton";
-import { formatCurrency } from "@/app/utilities/fomatCurrency";
 import { Product, products } from "@/data";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import Image from "next/image";
@@ -53,7 +52,7 @@ function ProductPage({ params }: PageProps) {
               data-cy="product-price"
               style={{ fontSize: "20px", padding: "5px", marginBottom: "2px" }}
             >
-              {formatCurrency(selectedProduct.price)}
+              {selectedProduct.price} $
             </Typography>
             <AddToCartButton product={selectedProduct} />
           </CardContent>
