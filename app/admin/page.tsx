@@ -1,17 +1,13 @@
 "use client";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { IconButton, Link, Typography, makeStyles } from "@mui/material";
+import { IconButton, Link } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
-import AdminDelete from "../components/adminDelete";
 
-import { useState } from "react";
-
-import { useProducts } from "../contexts/ProductContext";
 import AdminProductCard from "../components/adminProductCard";
+import { useProducts } from "../contexts/ProductContext";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -40,7 +36,7 @@ export default function AdminPage() {
       >
         <AddCircleOutlineIcon />
       </IconButton>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={4}>
         {products.map((product) => (
           <Grid
             key={product.id}
@@ -51,6 +47,7 @@ export default function AdminPage() {
             lg={3}
             xl={3}
             data-cy="product"
+            style={{ display: "flex", alignItems: "stretch" }}
           >
             <AdminProductCard
               id={product.id}
