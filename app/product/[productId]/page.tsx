@@ -16,47 +16,49 @@ function ProductPage({ params }: PageProps) {
 	}
 
 	return (
-		<Box
-			display="flex"
-			justifyContent="center"
-			alignItems="center"
-			minHeight="80vh"
-		>
-			<Card>
-				<CardContent
-					style={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-						justifyContent: "center",
-						textAlign: "center",
-					}}
-				>
-					<Typography variant="h5" marginBottom={3} data-cy="product-title">
-						{selectedProduct.title}
-					</Typography>
-					<Box marginBottom={2}>
-						<Image
-							src={selectedProduct.image}
-							alt={selectedProduct.title}
-							width={270}
-							height={270}
-						/>
-					</Box>
-					<Typography variant="body1" data-cy="product-description">
-						{selectedProduct.description}
-					</Typography>
-					<Typography
-						variant="h3"
-						data-cy="product-price"
-						style={{ fontSize: "20px", padding: "5px", marginBottom: "2px" }}
+		<main>
+			<Box
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				minHeight="80vh"
+			>
+				<Card>
+					<CardContent
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+							justifyContent: "center",
+							textAlign: "center",
+						}}
 					>
-						$ {selectedProduct.price}
-					</Typography>
-					<AddToCartButton product={selectedProduct} />
-				</CardContent>
-			</Card>
-		</Box>
+						<Typography variant="h5" marginBottom={3} data-cy="product-title">
+							{selectedProduct.title}
+						</Typography>
+						<Box marginBottom={2}>
+							<Image
+								src={selectedProduct.image}
+								alt={selectedProduct.title}
+								width={270}
+								height={270}
+							/>
+						</Box>
+						<Typography variant="body1" data-cy="product-description">
+							{selectedProduct.description}
+						</Typography>
+						<Typography
+							variant="h3"
+							data-cy="product-price"
+							style={{ fontSize: "20px", padding: "5px", marginBottom: "2px" }}
+						>
+							$ {selectedProduct.price}
+						</Typography>
+						<AddToCartButton product={selectedProduct} />
+					</CardContent>
+				</Card>
+			</Box>
+		</main>
 	);
 }
 export default ProductPage;
