@@ -7,7 +7,7 @@ interface DeleteProps {
 }
 
 export default function DeleteButton(props: DeleteProps) {
-  const { clearCart } = useCart();
+  const { clearProducts: clearCart } = useCart();
   function handleDelete() {
     clearCart(props.id);
   }
