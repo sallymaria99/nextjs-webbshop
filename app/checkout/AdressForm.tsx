@@ -52,12 +52,12 @@ export default function AddressForm() {
 						Checkout
 					</Typography>
 					<form data-cy="customer-form" onSubmit={form.handleSubmit(save)}>
-						<Typography variant="h6" gutterBottom>
+						<Typography variant="h6" gutterBottom textAlign={"center"}>
 							Shipping address
 						</Typography>
 
 						<Grid container spacing={3}>
-							<Grid item xs={12} sm={6}>
+							<Grid item xs={12}>
 								<TextField
 									{...form.register("customerName")}
 									label="Customer name *"
@@ -105,7 +105,7 @@ export default function AddressForm() {
 									helperText={form.formState.errors.address?.message}
 								/>
 							</Grid>
-							<Grid item xs={12} sm={6}>
+							<Grid item xs={12}>
 								<TextField
 									{...form.register("city")}
 									label="City *"
@@ -120,8 +120,19 @@ export default function AddressForm() {
 									helperText={form.formState.errors.city?.message}
 								/>
 							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									{...form.register("country")}
+									id="country"
+									name="country"
+									label="Country"
+									fullWidth
+									autoComplete="shipping country"
+									variant="standard"
+								/>
+							</Grid>
 
-							<Grid item xs={12} sm={6}>
+							<Grid item xs={12}>
 								<TextField
 									{...form.register("zipcode")}
 									name="zipcode"
@@ -138,6 +149,8 @@ export default function AddressForm() {
 									error={Boolean(form.formState.errors.zipcode)}
 									helperText={form.formState.errors.zipcode?.message}
 								/>
+							</Grid>
+							<Grid item xs={12}>
 								<TextField
 									{...form.register("phone")}
 									id="phone"
@@ -154,17 +167,7 @@ export default function AddressForm() {
 									helperText={form.formState.errors.phone?.message}
 								/>
 							</Grid>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									{...form.register("country")}
-									id="country"
-									name="country"
-									label="Country"
-									fullWidth
-									autoComplete="shipping country"
-									variant="standard"
-								/>
-							</Grid>
+
 							<Grid item xs={12}>
 								<Button type="submit" variant="contained" color="primary">
 									Submit

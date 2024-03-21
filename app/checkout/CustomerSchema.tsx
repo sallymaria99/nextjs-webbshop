@@ -10,7 +10,9 @@ export const CustomerSchema = z.object({
 		.string()
 		.max(40, { message: "The post can be a maximum of 40 characters long" })
 		.min(10),
-	city: z.string({ required_error: "City is obligatory" }),
+	city: z
+		.string()
+		.max(28, { message: "The City can be a maximum of 28 characters long" }),
 	zipcode: z.string({ required_error: "Zip code is obligatory" }),
 	id: z.string(),
 	country: z.string({ required_error: "Country is obligatory" }),
