@@ -12,11 +12,16 @@ export const CustomerSchema = z.object({
 		.min(10),
 	city: z
 		.string()
+		.min(4, { message: "The City can be a maximum of 28 characters long" })
 		.max(28, { message: "The City can be a maximum of 28 characters long" }),
-	zipcode: z.string({ required_error: "Zip code is obligatory" }),
+
+	zipcode: z.string().min(5, { message: "Zip code is obligatory" }).max(5),
 	id: z.string(),
-	country: z.string({ required_error: "Country is obligatory" }),
-	phone: z.string({ required_error: "Phone is obligatory" }),
+	phone: z
+		.string()
+		.min(7, { message: "Phone number is too short" })
+		.max(15, { message: "Phone number is too long" })
+		.optional(),
 });
 
 export type Customer = z.infer<typeof CustomerSchema>;
