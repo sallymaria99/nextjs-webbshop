@@ -17,12 +17,14 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import CopyRight from "../components/copyRight";
+import { useCart } from "../contexts/CartContext";
 import { useCustomer } from "../contexts/CustomerContext";
 import { Customer, CustomerSchema } from "./CustomerSchema";
 
 export default function AddressForm() {
   const router = useRouter();
-  const { setCustomer } = useCustomer();
+  const { cart, clearCart } = useCart();
+  const { setCustomer, addItemsToOrderSummary } = useCustomer();
 
   const form = useForm<Customer>({
     defaultValues: { id: nanoid() },
@@ -33,6 +35,8 @@ export default function AddressForm() {
     console.log(data);
     router.push("/confirmation");
     setCustomer(data);
+    addItemsToOrderSummary(cart);
+    clearCart();
   };
 
   return (
@@ -91,75 +95,74 @@ export default function AddressForm() {
                   helperText={form.formState.errors.email?.message}
                 />
               </Grid>
-							<Grid item xs={12}>
-								<TextField
-									{...form.register("address")}
-									label="Address *"
-									fullWidth
-									autoComplete="street-address"
-									variant="standard"
-									inputProps={{ "data-cy": "customer-address" }}
-									FormHelperTextProps={
-										{
-											"data-cy": "customer-address-error",
-										} as FormHelperTextProps
-									}
-									error={Boolean(form.formState.errors.address)}
-									helperText={form.formState.errors.address?.message}
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									{...form.register("city")}
-									label="City *"
-									fullWidth
-									autoComplete="address-level2"
-									variant="standard"
-									inputProps={{ "data-cy": "customer-city" }}
-									FormHelperTextProps={
-										{ "data-cy": "customer-city-error" } as FormHelperTextProps
-									}
-									error={Boolean(form.formState.errors.city)}
-									helperText={form.formState.errors.city?.message}
-								/>
-							</Grid>
+              <Grid item xs={12}>
+                <TextField
+                  {...form.register("address")}
+                  label="Address *"
+                  fullWidth
+                  autoComplete="street-address"
+                  variant="standard"
+                  inputProps={{ "data-cy": "customer-address" }}
+                  FormHelperTextProps={
+                    {
+                      "data-cy": "customer-address-error",
+                    } as FormHelperTextProps
+                  }
+                  error={Boolean(form.formState.errors.address)}
+                  helperText={form.formState.errors.address?.message}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  {...form.register("city")}
+                  label="City *"
+                  fullWidth
+                  autoComplete="address-level2"
+                  variant="standard"
+                  inputProps={{ "data-cy": "customer-city" }}
+                  FormHelperTextProps={
+                    { "data-cy": "customer-city-error" } as FormHelperTextProps
+                  }
+                  error={Boolean(form.formState.errors.city)}
+                  helperText={form.formState.errors.city?.message}
+                />
+              </Grid>
 
-							<Grid item xs={12}>
-								<TextField
-									{...form.register("zipcode")}
-									name="zipcode"
-									label="Zipcode *"
-									fullWidth
-									autoComplete="postal-code"
-									variant="standard"
-									inputProps={{ "data-cy": "customer-zipcode" }}
-									FormHelperTextProps={
-										{
-											"data-cy": "customer-zipcode-error",
-										} as FormHelperTextProps
-									}
-									error={Boolean(form.formState.errors.zipcode)}
-									helperText={form.formState.errors.zipcode?.message}
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									{...form.register("phone")}
-									id="phone"
-									name="phone"
-									label="Phone *"
-									fullWidth
-									autoComplete="tel"
-									variant="standard"
-									inputProps={{ "data-cy": "customer-phone" }}
-									FormHelperTextProps={
-										{ "data-cy": "customer-phone-error" } as FormHelperTextProps
-									}
-									error={Boolean(form.formState.errors.phone)}
-									helperText={form.formState.errors.phone?.message}
-								/>
-							</Grid>
-
+              <Grid item xs={12}>
+                <TextField
+                  {...form.register("zipcode")}
+                  name="zipcode"
+                  label="Zipcode *"
+                  fullWidth
+                  autoComplete="postal-code"
+                  variant="standard"
+                  inputProps={{ "data-cy": "customer-zipcode" }}
+                  FormHelperTextProps={
+                    {
+                      "data-cy": "customer-zipcode-error",
+                    } as FormHelperTextProps
+                  }
+                  error={Boolean(form.formState.errors.zipcode)}
+                  helperText={form.formState.errors.zipcode?.message}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  {...form.register("phone")}
+                  id="phone"
+                  name="phone"
+                  label="Phone *"
+                  fullWidth
+                  autoComplete="tel"
+                  variant="standard"
+                  inputProps={{ "data-cy": "customer-phone" }}
+                  FormHelperTextProps={
+                    { "data-cy": "customer-phone-error" } as FormHelperTextProps
+                  }
+                  error={Boolean(form.formState.errors.phone)}
+                  helperText={form.formState.errors.phone?.message}
+                />
+              </Grid>
 
               <Grid item xs={12}>
                 <Button type="submit" variant="contained" color="primary">
