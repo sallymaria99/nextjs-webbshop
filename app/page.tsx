@@ -65,7 +65,7 @@ function Home() {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={4} style={{}}>
         {products.map((product) => (
           <Grid
             key={product.id}
@@ -76,6 +76,7 @@ function Home() {
             lg={3}
             xl={3}
             data-cy="product"
+            style={{ display: "flex", alignItems: "stretch" }}
           >
             <MultiActionAreaCard
               id={product.id}
