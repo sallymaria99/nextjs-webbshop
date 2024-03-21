@@ -54,7 +54,7 @@ export default function Confirmation() {
 					<Typography component="h1" variant="h4" align="center">
 						Order confirmation
 					</Typography>
-					<Grid container spacing={2}>
+					<Grid container spacing={2} margin-left="0px">
 						<Grid item xs={12} sm={6}>
 							<Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
 								Shipping
@@ -66,15 +66,18 @@ export default function Confirmation() {
 							</Typography>
 							<List disablePadding>
 								{cart.map((item) => (
-									<ListItem key={item.title} sx={{ py: 1, px: 0 }}>
-										<ListItemText
-											primary={item.title}
-											secondary={item.description}
-										/>
-										<Typography variant="body2">
-											{item.price * item.quantity}
-										</Typography>
-									</ListItem>
+									<Grid container spacing={2} key={item.title} sx={{ my: 1 }}>
+										<Grid item xs={12}>
+											<Typography variant="body1">
+												{item.description}
+											</Typography>
+										</Grid>
+										<Grid item xs={12} sx={{ mt: 1 }}>
+											<Typography variant="body2" sx={{ fontWeight: "bold" }}>
+												Total : $ {item.price * item.quantity}
+											</Typography>
+										</Grid>
+									</Grid>
 								))}
 								<ListItem sx={{ py: 1, px: 0 }}>
 									<ListItemText
@@ -88,7 +91,7 @@ export default function Confirmation() {
 										}
 									/>
 									<Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-										{totalPrice}
+										$ {totalPrice} USD
 									</Typography>
 								</ListItem>
 							</List>
