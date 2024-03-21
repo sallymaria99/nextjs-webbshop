@@ -1,4 +1,5 @@
 "use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
 	AppBar,
@@ -120,23 +121,12 @@ export default function AddressForm() {
 									helperText={form.formState.errors.city?.message}
 								/>
 							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									{...form.register("country")}
-									id="country"
-									name="country"
-									label="Country"
-									fullWidth
-									autoComplete="shipping country"
-									variant="standard"
-								/>
-							</Grid>
 
 							<Grid item xs={12}>
 								<TextField
 									{...form.register("zipcode")}
 									name="zipcode"
-									label="Zipcode"
+									label="Zipcode *"
 									fullWidth
 									autoComplete="postal-code"
 									variant="standard"
@@ -155,7 +145,7 @@ export default function AddressForm() {
 									{...form.register("phone")}
 									id="phone"
 									name="phone"
-									label="Phone"
+									label="Phone *"
 									fullWidth
 									autoComplete="tel"
 									variant="standard"
