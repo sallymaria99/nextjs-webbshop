@@ -51,7 +51,7 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
             color="text.secondary"
             data-cy="product-price"
           >
-            $ {props.price}
+            {props.price} $
           </Typography>
         </CardContent>
       </CardActionArea>

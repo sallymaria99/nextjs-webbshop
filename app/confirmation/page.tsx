@@ -70,14 +70,14 @@ export default function Confirmation() {
                 {orderSummary.map((item) => (
                   <Grid container spacing={2} key={item.id} sx={{ my: 1 }}>
                     <Grid item xs={12}>
-                      <Typography variant="h3">{item.title}</Typography>
+                      <Typography variant="h4">{item.title}</Typography>
                       <Typography variant="body1">
                         {item.description}
                       </Typography>
                     </Grid>
                     <Grid item xs={12} sx={{ mt: 1 }}>
                       <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                        Total : $ {item.quantity * item.price}
+                        Total : {item.quantity * item.price} $
                       </Typography>
                     </Grid>
                   </Grid>
@@ -94,7 +94,7 @@ export default function Confirmation() {
                     }
                   />
                   <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                    $ {totalPrice} USD
+                    {totalPrice} $
                   </Typography>
                 </ListItem>
               </List>
