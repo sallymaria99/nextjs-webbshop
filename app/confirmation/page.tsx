@@ -58,7 +58,7 @@ export default function Confirmation() {
                   <Typography gutterBottom>{customer.address}</Typography>
                   <Typography gutterBottom>{customer.city}</Typography>
                   <Typography gutterBottom>{customer.zipcode}</Typography>
-                  <Typography gutterBottom>{customer.id}</Typography>
+
                   <Typography gutterBottom>{customer.phone}</Typography>
                 </React.Fragment>
               )}
@@ -110,10 +110,15 @@ export default function Confirmation() {
             buying our quality ice, we look forward in serving you once again in
             the future.
           </Typography>
+          {customer && (
+            <Typography gutterBottom>
+              Your order number is #{customer.id}
+            </Typography>
+          )}
+
           <Typography variant="subtitle2">
-            Your order number is #2001539. We have emailed your order
-            confirmation, and will send you an update when your order has
-            shipped. Have an splendid day.
+            We have emailed your order confirmation, and will send you an update
+            when your order has shipped. Have an splendid day.
           </Typography>
         </Paper>
       </Container>
