@@ -10,26 +10,22 @@ import ListItemText from "@mui/material/ListItemText";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import { useCart } from "../contexts/CartContext";
 import { useCustomer } from "../contexts/CustomerContext";
 
 //"Payment details",
 
 export default function Confirmation() {
-  const { cart } = useCart();
   const [totalPrice, setTotalPrice] = React.useState(0);
-  const { customer } = useCustomer();
+  const { customer, orderSummary } = useCustomer();
 
   React.useEffect(() => {
-    const itemCount: any = cart.reduce(
+    const itemCount: any = orderSummary.reduce(
       (total, item) => total + item.quantity * item.price,
       0
     );
     setTotalPrice(itemCount);
-  }, [cart]);
+  }, [orderSummary]);
 
-  /*   const addresses = ["1 MUI Drive", "Reactville", "Anytown", "99999", "USA"];
-   */
   return (
     <React.Fragment>
       <CssBaseline />
@@ -41,13 +37,7 @@ export default function Confirmation() {
           position: "relative",
           borderBottom: (t) => `${t.palette.divider}`,
         }}
-      >
-        {/* <Toolbar>
-					<Typography variant="h6" color="inherit" noWrap>
-						Company name
-					</Typography>
-				</Toolbar> */}
-      </AppBar>
+      ></AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
@@ -68,27 +58,26 @@ export default function Confirmation() {
                   <Typography gutterBottom>{customer.address}</Typography>
                   <Typography gutterBottom>{customer.city}</Typography>
                   <Typography gutterBottom>{customer.zipcode}</Typography>
-                  <Typography gutterBottom>{customer.id}</Typography>
                   <Typography gutterBottom>{customer.phone}</Typography>
                 </React.Fragment>
               )}
 
-              {/*  {<Typography gutterBottom>{addresses.join(", ")}</Typography>} */}
               <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
                 Payment details
               </Typography>
 
               <List disablePadding>
-                {cart.map((item) => (
-                  <Grid container spacing={2} key={item.title} sx={{ my: 1 }}>
+                {orderSummary.map((item) => (
+                  <Grid container spacing={2} key={item.id} sx={{ my: 1 }}>
                     <Grid item xs={12}>
+                      <Typography variant="h3">{item.title}</Typography>
                       <Typography variant="body1">
                         {item.description}
                       </Typography>
                     </Grid>
                     <Grid item xs={12} sx={{ mt: 1 }}>
                       <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                        Total : $ {item.price * item.quantity}
+                        Total : $ {item.quantity * item.price}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -120,10 +109,15 @@ export default function Confirmation() {
             buying our quality ice, we look forward in serving you once again in
             the future.
           </Typography>
+          {customer && (
+            <Typography gutterBottom>
+              Your order number is #{customer.id}
+            </Typography>
+          )}
+
           <Typography variant="subtitle2">
-            Your order number is #2001539. We have emailed your order
-            confirmation, and will send you an update when your order has
-            shipped. Have an splendid day.
+            We have emailed your order confirmation, and will send you an update
+            when your order has shipped. Have an splendid day.
           </Typography>
         </Paper>
       </Container>

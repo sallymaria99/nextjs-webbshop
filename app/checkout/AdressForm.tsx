@@ -17,12 +17,14 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import CopyRight from "../components/copyRight";
+import { useCart } from "../contexts/CartContext";
 import { useCustomer } from "../contexts/CustomerContext";
 import { Customer, CustomerSchema } from "./CustomerSchema";
 
 export default function AddressForm() {
   const router = useRouter();
-  const { setCustomer } = useCustomer();
+  const { cart, clearCart } = useCart();
+  const { setCustomer, addItemsToOrderSummary } = useCustomer();
 
   const form = useForm<Customer>({
     defaultValues: { id: nanoid() },
@@ -33,6 +35,8 @@ export default function AddressForm() {
     console.log(data);
     router.push("/confirmation");
     setCustomer(data);
+    addItemsToOrderSummary(cart);
+    clearCart();
   };
 
   return (
