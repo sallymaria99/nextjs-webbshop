@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import DeleteButton from "../components/deleteButton";
 import HandleQuantbutton from "../components/quantbutton";
 import { useCart } from "../contexts/CartContext";
+import { formatCurrency } from "../utilities/fomatCurrency";
 
 function CartSummary() {
   const { cart } = useCart();
@@ -51,7 +52,7 @@ function CartSummary() {
                     {cartItem.title}
                   </Typography>
                   <Typography variant="body1" data-cy="product-price">
-                    Price: {cartItem.quantity * cartItem.price} SEK
+                    Price: {formatCurrency(cartItem.quantity * cartItem.price)}
                   </Typography>
                   <div
                     style={{
@@ -80,7 +81,7 @@ function CartSummary() {
         <Grid item xs={12}>
           <Box textAlign="center">
             <Typography data-cy="total-price" variant="h5">
-              Total Price: {totalPrice} SEK
+              Total Price: {formatCurrency(totalPrice)}
             </Typography>
           </Box>
         </Grid>

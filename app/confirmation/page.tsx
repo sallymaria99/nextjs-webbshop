@@ -11,6 +11,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useCustomer } from "../contexts/CustomerContext";
+import { formatCurrency } from "../utilities/fomatCurrency";
 
 //"Payment details",
 
@@ -77,7 +78,7 @@ export default function Confirmation() {
                     </Grid>
                     <Grid item xs={12} sx={{ mt: 1 }}>
                       <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                        Total : $ {item.quantity * item.price}
+                        Total : {formatCurrency(item.quantity * item.price)}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -94,7 +95,7 @@ export default function Confirmation() {
                     }
                   />
                   <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                    $ {totalPrice} USD
+                    {formatCurrency(totalPrice)}
                   </Typography>
                 </ListItem>
               </List>

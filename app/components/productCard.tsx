@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import { formatCurrency } from "../utilities/fomatCurrency";
 import AddToCartButton from "./addToCartButton";
 
 interface ProductCardProps {
@@ -51,7 +52,7 @@ export default function MultiActionAreaCard(props: ProductCardProps) {
             color="text.secondary"
             data-cy="product-price"
           >
-            $ {props.price}
+            {formatCurrency(props.price)}
           </Typography>
         </CardContent>
       </CardActionArea>
