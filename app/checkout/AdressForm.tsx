@@ -38,6 +38,9 @@ export default function AddressForm() {
     addItemsToOrderSummary(cart);
     clearCart();
   };
+  if (cart.length < 1) {
+    return null;
+  }
 
   return (
     <React.Fragment>
