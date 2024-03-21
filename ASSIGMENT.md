@@ -70,7 +70,7 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 
 - `data-cy="product"` produkt-korten/raden på startsidan & adminsidan. <!-- tillagt i home och admin box för korten-->
 - `data-cy="product-id"` id på en produkt. <!--lägger till i admin och korten-->
-- `data-cy="product-title"` titeln på en produkt.<!-- tillagt i home + admin-->
+- `data-cy="product-title"` titeln på en produkt.<!-- tillagt i CartSummary-->
 - `data-cy="product-price"` priset på en produkt.<!-- tillagt i home-->
 - `data-cy="product-description"` beskrivningen av en produkt. <!-- tillagt i home-->
 - `data-cy="product-buy-button"` lägg till i kundvagnen knappen. <!-- Tillagd i Home()-->
@@ -86,7 +86,7 @@ Ni ska vid presentationstillfället hålla i en muntlig presentation för klasse
 - `data-cy="increase-quantity-button"` knappen för att öka antalet av en produkt på kassasida. <!-- Tillagd på quantbutton -->
 - `data-cy="decrease-quantity-button"` knappen för att minska antalet av en produkt på kassasida.<!-- Tillagd på quantbutton -->
 - `data-cy="product-quantity"` antalet valda produkter av samma typ på kassasida. <!-- Tillagd på quantbutton -->
-- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillagd på ceckout, page -->
+- `data-cy="total-price"` totala priset för alla produkter i kundvagnen. <!-- Tillagd på ceckout, CartSummary-->
 
 ---
 
