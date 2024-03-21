@@ -6,3 +6,5 @@ const CURRENCY_FORMATER = new Intl.NumberFormat(undefined, {
 export function formatCurrency(number: number) {
   return CURRENCY_FORMATER.format(number);
 }
+
+// CYPRESS GILLAR INTE MIN OMFORMATKOD :(
